@@ -28,7 +28,7 @@ win_home -> /cygdrive/c/Users/Rene/
 !.tmux.conf
 !.vimrc
 !.zsh/
-!ChangeLog
+!LICENSE
 
 # Created by https://www.gitignore.io/api/vim
 
