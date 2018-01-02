@@ -1,0 +1,49 @@
+./
+.*
+*
+.Xauthority
+.bash_history
+.inputrc*
+.lesshst
+.minttyrc
+.serverauth.3520
+.serverauth.5228
+.serverauth.6112
+.serverauth.62204
+.ssh_agent
+.vim_local_rc_cache
+.viminfo
+.vimrc~
+.wget-hsts
+.xsession-errors
+12345678901234567890123456789012345678901234567890
+win_home -> /cygdrive/c/Users/Rene/
+!.Xresources
+!.bash_profile*
+!.bashrc*
+!.gitconfig
+!.gitfiles/
+!.gitignore
+!.profile*
+!.tmux.conf
+!.vimrc
+!.zsh/
+!ChangeLog
+
+# Created by https://www.gitignore.io/api/vim
+
+### Vim ###
+# swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+
+# End of https://www.gitignore.io/api/vim

@@ -1,0 +1,44 @@
+[alias]
+	ci = commit
+	co = checkout
+	st = status -sb
+	br = branch
+	feature = flow feature
+	logg = log --pretty=format:'%C(Yellow)%h %C(Cyan)%ad %C(White)%s%C(Green)%d %C(Red)[%an]' --date=short
+	hist = log --pretty=format:'%C(Yellow)%h %C(Cyan)%ad %C(White)%s%C(Green)%d %C(Red)[%an]' --date=short --graph --decorate
+[core]
+	editor = vim
+[credential]
+	helper = store --file=/home/Rene/.gitfiles/creds
+[user]
+	email = ginny690901@hotmail.de
+	name = Shea690901
+[github]
+	user = Shea690901
+[hooks]
+	allownonascii = false
+[commit]
+	template = /home/Rene/.gitfiles/commit_msg.template
+[trailer]
+	where = after
+[trailer "sign"]
+	key = Signed-off-by
+	ifexists = doNothing
+	ifmissing = add
+	command = echo \"$(git config user.name) <$(git config user.email)>\"
+[gc]
+	auto = 32
+	autoPackLimit = 32
+[gc "refs/heads/*"]
+	reflogExpire = 90 days
+	reflogExpireUnreachable = 30 days
+[gc "refs/remotes/*"]
+	reflogExpire = never
+	reflogExpireUnreachable = 3 days
+[gc "refs/tags/*"]
+	reflogExpire = never
+	reflogExpireUnreachable = 7 days
+[gitflow "feature.finish"]
+	push = true
+[oh-my-zsh]
+	hide-status = 1
