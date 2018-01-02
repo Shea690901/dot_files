@@ -1,0 +1,9 @@
+./
+.*
+*
+!.gitignore
+!.zshenv
+!.zprofile
+!.zshrc
+!.zlogin
+!.zlogout
