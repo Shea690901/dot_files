@@ -6,10 +6,15 @@ setopt appendhistory beep extendedglob nomatch
 unsetopt autocd
 bindkey -e
 # End of lines configured by zsh-newuser-install
+
+eval $(dircolors)
+zmodload -i zsh/stat && disable stat
+
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _list _expand _complete _ignored _match
+zstyle ':completion:*' completer _expand _complete _ignored _match _list
 zstyle ':completion:*' completions 1
+zstyle ':completion:*' condition 1
 zstyle ':completion:*' expand prefix suffix
 zstyle ':completion:*' format 'Completing %d:'
 zstyle ':completion:*' glob 1
@@ -19,8 +24,8 @@ zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt '%SAt %l: Hit TAB for more, or the character to insert%s'
 zstyle ':completion:*' list-suffixes true
-zstyle ':completion:*' match-original both
-zstyle ':completion:*' matcher-list ''
+zstyle ':completion:*' match-original only
+zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+r:|[._-]=* r:|=*'
 zstyle ':completion:*' menu select=long
 zstyle ':completion:*' original true
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
@@ -29,7 +34,7 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' substitute 1
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/Rene/.zshrc'
+zstyle :compinstall filename '/home/Rene/.zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -41,7 +46,6 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="verbose"
 GIT_PS1_SHOWCOLORHINTS=1
 SCD_HISTFILE=${ZDOTDIR}/scd/history
-eval $(dircolors)
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=true
