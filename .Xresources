@@ -1,6 +1,6 @@
 urxvt*termName: xterm
-urxvt*font: xft:DroidSansMono\ Nerd\ Font:pixelsize=15:antialias=true:hinting=true
-urxvt*boldFont: xft:DroidSansMono\ Nerd\ Font:pixelsize=15:antialias=true:hinting=true
+urxvt*font: xft:DroidSansMono\ Nerd\ Font\ Mono:pixelsize=15:antialias=true:hinting=true
+urxvt*boldFont: xft:DroidSansMono\ Nerd\ Font\ Mono:pixelsize=15:antialias=true:hinting=true
 urxvt*saveLines: 1000000
 urxvt*scrollstyle: rxvt
 urxvt*transparent: true
