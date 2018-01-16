@@ -8,6 +8,7 @@
 	hist = log --pretty=format:'%C(Yellow)%h %C(Cyan)%ad %C(White)%s%C(Green)%d %C(Red)[%an]' --date=short --graph --decorate
 [core]
 	editor = vim
+	excludesFile = /home/Rene/.gitfiles/ignore
 [credential]
 	helper = store --file=/home/Rene/.gitfiles/creds
 [user]
@@ -42,3 +43,9 @@
 	push = true
 [oh-my-zsh]
 	hide-status = 1
+[tar]
+	umask = 022
+[tar "tar.xz"]
+	command = xz -c
+[tar "txz"]
+	command = xz -c

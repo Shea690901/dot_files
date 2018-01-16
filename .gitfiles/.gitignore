@@ -1,3 +1,4 @@
 creds
 !.gitignore
 !commit_msg.template
+!ignore
