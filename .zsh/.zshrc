@@ -92,11 +92,14 @@ antigen bundle web-search
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+antigen bundle arialdomartini/oh-my-git
+antigen theme Shea690901/oh-my-git-themes oppa-lana-style-nerdfonts
+
 # Tell Antigen that you're done.
 antigen apply
 
 # Load the theme.
-theme jtriley
+#theme jtriley
 
 ssh_agent_running=0
 if [ -f "${HOME}/.ssh_agent" ]; then
