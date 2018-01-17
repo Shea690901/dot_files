@@ -23,6 +23,7 @@ win_home -> /cygdrive/c/Users/Rene/
 !.bashrc*
 !.gitconfig
 !.gitfiles/
+!.gitfiles/hooks/
 !.gitignore
 !.profile*
 !.tmux.conf

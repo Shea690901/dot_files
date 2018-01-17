@@ -1,0 +1,39 @@
+#!/bin/sh
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+/usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
+
+case "$COMMIT_SOURCE,$SHA1" in
+  merge,)
+    /usr/bin/perl -i.bak -ne 's/^/# /, s/^# #/#/ if /^Conflicts/ .. /#/; print' "$1" ;;
+
+#  ,|template,)
+#    /usr/bin/perl -i.bak -pe '
+#       print "\n" . `git diff --cached --name-status -r`
+# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
+
+  *) ;;
+esac
+
+
+BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
+if [ $BRANCH_NAME != '(no branch)' ]
+then
+    echo "#" >> "$COMMIT_MSG_FILE"
+    echo "# Last 10 commit messages" >> "$COMMIT_MSG_FILE"
+    echo "# ----------------------" >> "$COMMIT_MSG_FILE"
+    git log --pretty=format:"# %h %s [%an]" -10 >> "$COMMIT_MSG_FILE"
+    echo >> "$COMMIT_MSG_FILE"
+fi
+
+# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+# SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
+git interpret-trailers --in-place --trim-empty "$COMMIT_MSG_FILE"
+if test -z "$COMMIT_SOURCE"
+then
+  /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+fi

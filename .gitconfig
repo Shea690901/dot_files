@@ -9,6 +9,7 @@
 [core]
 	editor = vim
 	excludesFile = /home/Rene/.gitfiles/ignore
+	hooksPath = /home/Rene/.gitfiles/hooks
 [credential]
 	helper = store --file=/home/Rene/.gitfiles/creds
 [user]
