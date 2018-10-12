@@ -13,5 +13,5 @@ urxvt*color4: #5566FF
 urxvt*color12: #6688FF
 urxvt*iso14755_52: true
 urxvt.perl-ext-common: default,matcher,clipboard
-urxvt.urlLauncher:     /usr/bin/google-chrome
+urxvt.urlLauncher:     /usr/bin/firefox
 urxvt.matcher.button: 1

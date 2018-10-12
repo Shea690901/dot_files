@@ -207,7 +207,7 @@ let g:rm_apply_config_mapping='<leader>sv'
         Plugin 'mbbill/undotree'
         Plugin 'mhinz/vim-startify'
         Plugin 'mhinz/vim-signify'
-        Plugin 'omtcvxyz/vim-colors-solarized'
+        Plugin 'Shea690901/vim-colors-solarized'
         Plugin 'rhysd/conflict-marker.vim'
         Plugin 'rhysd/vim-textobj-anyblock'
         Plugin 'scrooloose/nerdtree'
@@ -239,7 +239,9 @@ let g:rm_apply_config_mapping='<leader>sv'
     " }
 
     " Writing {
-        Plugin 'vim-scripts/lookup.vim'
+        if has("python")
+            Plugin 'vim-scripts/lookup.vim'
+        endif
         Plugin 'vim-scripts/txt.vim'
 
         if count(g:rm_bundle_groups, 'writing')
@@ -307,7 +309,9 @@ let g:rm_apply_config_mapping='<leader>sv'
     " }
 
     " lua {
+        if has("python")
             Plugin 'spacewander/vim-textobj-lua'
+        endif
     " }
 
     " PHP {

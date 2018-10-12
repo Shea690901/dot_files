@@ -8,10 +8,10 @@
 	hist = log --pretty=format:'%C(Yellow)%h %C(Cyan)%ad %C(White)%s%C(Green)%d %C(Red)[%an]' --date=short --graph --decorate
 [core]
 	editor = vim
-	excludesFile = /home/Rene/.gitfiles/ignore
-	hooksPath = /home/Rene/.gitfiles/hooks
+	excludesFile = /home/shea/.gitfiles/ignore
+	hooksPath = /home/shea/.gitfiles/hooks
 [credential]
-	helper = store --file=/home/Rene/.gitfiles/creds
+	helper = store --file=/home/shea/.gitfiles/creds
 [user]
 	email = ginny690901@hotmail.de
 	name = Shea690901
@@ -20,7 +20,7 @@
 [hooks]
 	allownonascii = false
 [commit]
-	template = /home/Rene/.gitfiles/commit_msg.template
+	template = /home/shea/.gitfiles/commit_msg.template
 [trailer]
 	where = after
 [trailer "sign"]

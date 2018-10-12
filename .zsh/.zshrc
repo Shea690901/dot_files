@@ -34,7 +34,7 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' substitute 1
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/Rene/.zsh/.zshrc'
+zstyle :compinstall filename '/home/shea/.zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -55,7 +55,7 @@ ZSH_TMUX_ITERM2=false
 ZSH_TMUX_FIXTERM_WITHOUT_256COLOR="screen"
 ZSH_TMUX_FIXTERM_WITH_256COLOR="screen-256color"
 
-source /usr/local/share/antigen.zsh
+source /usr/local/share/zsh/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
@@ -104,7 +104,7 @@ antigen apply
 ssh_agent_running=0
 if [ -f "${HOME}/.ssh_agent" ]; then
   source "${HOME}/.ssh_agent"
-  if ps -p $SSH_AGENT_PID | grep -q /usr/bin/ssh-agent ; then
+  if ps -p $SSH_AGENT_PID | grep -q ssh-agent ; then
     ssh_agent_running=1
   fi
 fi
