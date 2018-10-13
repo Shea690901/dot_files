@@ -26,6 +26,11 @@ exec 1>&2
 # 1: abort commit
 RET=0
 
+if [ "$against" = "No commits yet" ]
+then
+    return $RET
+fi
+
 # Cross platform projects tend to avoid non-ASCII filenames; prevent
 # them from being added to the repository. We exploit the fact that the
 # printable range starts at the space character and ends with tilde.
