@@ -7,6 +7,24 @@
 #
 # To enable this hook, rename this file to "pre-commit".
 
+SCRIPT_PATH="$0"; while [ -h "$SCRIPT_PATH" ]; do SCRIPT_PATH=$(readlink "$SCRIPT_PATH"); done
+. "$(dirname $SCRIPT_PATH)/modules/functions.sh"
+
+HOOK_STATUS=0
+
+# prevent master commits
+. "$HOOKS_DIR/modules/prevent-master-commits.sh"
+if [ $? -ne 0 ]; then
+    HOOK_STATUS=1
+fi
+
+# prevent-merge-marker-commits
+. "$HOOKS_DIR/modules/prevent-merge-marker-commits.sh"
+if [ $? -ne 0 ]; then
+    HOOK_STATUS=1
+fi
+
+
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
 	against=HEAD
@@ -24,7 +42,7 @@ exec 1>&2
 # return code:
 # 0: continue commit
 # 1: abort commit
-RET=0
+RET=$HOOK_STATUS
 
 if [ "$against" = "No commits yet" ]
 then
