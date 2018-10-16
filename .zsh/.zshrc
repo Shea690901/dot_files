@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh/history/${TTY#/dev/}
+HISTFILE=~/.zsh/history/${${TTY#/dev/}//\//_}
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory beep extendedglob nomatch
@@ -34,7 +34,7 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' substitute 1
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/shea/.zsh/.zshrc'
+zstyle :compinstall filename '/root/.zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -109,17 +109,31 @@ if [ -f "${HOME}/.ssh_agent" ]; then
   fi
 fi
 
-if echo $- | grep -q i ; then
+if echo $- | \grep -q i ; then
   if [ $ssh_agent_running -eq 0 ]; then
     /usr/bin/ssh-agent > "${HOME}/.ssh_agent"
     source "${HOME}/.ssh_agent"
-    for x in ${HOME}/.ssh/*.pub
-    do
-      ssh-add ${x%%.pub}
-    done
+    if setopt | \grep nomatch >/dev/null 2>&1
+    then
+      ssh_agent_reset_opt=0
+    else
+      setopt nonomatch
+      ssh_agent_reset_opt=1
+    fi
+    if ls ${HOME}/.ssh/*.pub >/dev/null 2>&1
+    then
+      for x in ${HOME}/.ssh/*.pub
+      do
+        ssh-add ${x%%.pub}
+      done
+    fi
+    if [ $ssh_agent_reset_opt -eq 1 ]
+    then
+      setopt nomatch
+    fi
   fi
 fi
-unset ssh_agent_running x
+unset ssh_agent_running ssh_agent_reset_opt x
 
 export LANG=de_DE.UTF-8
 export EDITOR='vim'
