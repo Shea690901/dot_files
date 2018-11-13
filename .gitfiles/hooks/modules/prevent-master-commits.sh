@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 CURRENT_BRANCH=$(git symbolic-ref HEAD)
 
-if [ "$CURRENT_BRANCH" == "refs/heads/master" ]; then
+if [ "$CURRENT_BRANCH" = "refs/heads/master" ]; then
     __print_fail "Direct commits to the master branch are not allowed."
     return 1
 else

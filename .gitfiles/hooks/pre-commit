@@ -10,20 +10,22 @@
 SCRIPT_PATH="$0"; while [ -h "$SCRIPT_PATH" ]; do SCRIPT_PATH=$(readlink "$SCRIPT_PATH"); done
 . "$(dirname $SCRIPT_PATH)/modules/functions.sh"
 
-HOOK_STATUS=0
+# return code:
+# 0: continue commit
+# 1: abort commit
+RET=0
 
 # prevent master commits
 . "$HOOKS_DIR/modules/prevent-master-commits.sh"
 if [ $? -ne 0 ]; then
-    HOOK_STATUS=1
+    RET=1
 fi
 
 # prevent-merge-marker-commits
 . "$HOOKS_DIR/modules/prevent-merge-marker-commits.sh"
 if [ $? -ne 0 ]; then
-    HOOK_STATUS=1
+    RET=1
 fi
-
 
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
@@ -38,11 +40,6 @@ allownonascii=$(git config --bool hooks.allownonascii)
 
 # Redirect output to stderr.
 exec 1>&2
-
-# return code:
-# 0: continue commit
-# 1: abort commit
-RET=$HOOK_STATUS
 
 if [ "$against" = "No commits yet" ]
 then
@@ -82,13 +79,23 @@ then
 fi
 
 # If there are whitespace errors, print the offending file names and fail.
-if git diff-index --check --cached $against --
+if [ $(git config --int hook.allowwhitespace) -eq 0 ]
 then
-#    $(git root)/bin/tags && git add $(git root)/src/tags
-#    gitlog-to-changelog > $(git root)/ChangeLog && git add $(git root)/Changelog
-    :
-else
-    RET=1
+	if git diff-index --check --cached $against --
+	then
+	#	$(git root)/bin/tags && git add $(git root)/src/tags
+		:
+	else
+		RET=1
+	fi
+fi
+
+# and now update the Changelog file
+# !!! ATTENTION !!!
+# THIS commit will be missing!!!
+if [ $RET -eq 0 ]
+then
+    git changelog -a -x > $(git root)/ChangeLog && git add $(git root)/ChangeLog
 fi
 
 exit $RET
