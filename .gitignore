@@ -30,6 +30,7 @@ win_home -> /cygdrive/c/Users/Rene/
 !.vimrc
 !.zsh/
 !LICENSE
+!ChangeLog
 
 # Created by https://www.gitignore.io/api/vim
 

@@ -1,0 +1,187 @@
+
+n.n.n / 2018-11-13
+==================
+
+  * <feat>(git:pre-commit): added check/Changelog
+  * <ref>(git ignore): update ignore files
+  * enabeling gcc colors
+  * <fix>(git config): new alias, type change
+  * <fix>(.zshrc): bug fix for non existend ssh-keys
+  * <feat>(git hooks): added hooks for git-flow-avh
+  * <fix>(git hooks): fix for repo without any commits
+  * <feat>(*): update for lubuntu
+  * <feat>(hooks): use global hooks
+
+v0.2.0 / 2018-01-16
+===================
+
+  * <feat>: added some plugins
+  * <feat>(modules): added oh-my-git module
+  * <feat>(git setup)
+  * <fix>(font): using monospaced font for terminal
+  * Merge tag 'v0.1.1' into develop
+
+v0.1.1 / 2018-01-03
+===================
+
+  * Merge branch 'release/v0.1.1'
+  * <ref>(zsh completion): slight modification
+  * <ref>(vim): update module origin
+  * <docs>(LICENSE) reintroduced dfault license
+  * <ref>(LICENSE): created dir for license files
+  * Merge tag 'v0.1.0' into develop
+
+v0.1.0 / 2018-01-02
+===================
+
+  * Merge branch 'release/v0.1.0'
+  * <feat>: version 0.1
+  * Initial commit
+
+debian/0.4.6 / 2018-01-02
+=========================
+
+  * release
+  * remove more duplicates / tiny speed-up
+  * refresh policy
+  * also consider all intermediate subdirectories under /etc
+
+debian/0.4.5 / 2017-12-08
+=========================
+
+  * release
+  * upgrade policy again
+  * set Rules-Requires-Root: no
+  * Merge pull request #1 from adrianheine/patch-1
+  * Remove implemented todo item
+  * Handle filenames longer than 199 bytes (Closes: #867016)
+  * bump debhelper, standards-version
+  * convert one last url to https
+  * cp /usr/share/common-licenses/GPL-2 LICENSE
+  * use HTTPS for urls, bump copyright year
+  * typos
+  * Only refresh mlocate database when needed
+  * gitignore: Nano swap files
+  * Enable full hardening
+  * gitignore
+  * Declare compliance with Policy 3.9.7
+  * Merge branch 'master' of github.com:a-detiste/cruft-ng
+  * add new test_dpkg for development
+
+0.4.4_bpo8+1 / 2016-02-17
+=========================
+
+  * backport to jessie 0.4.4~bpo8+1 - thanks Pabs
+
+0.4.4 / 2016-01-18
+==================
+
+  * release
+  * add support for systems with UsrMerge
+
+0.4.3 / 2016-01-06
+==================
+
+  * release
+  * don't report .pyc files if a .py file exist (Closes:  #366616)
+
+0.4.2 / 2015-12-11
+==================
+
+  * release
+  * enable parallel build
+  * Makefile: reduce duplication
+  * fix two "warning: ignoring return value of" warnings
+  * add support for dpkg's path-exclude option
+  * revert ignoring /srv, let admin handle this with their custom rules
+
+0.4.1 / 2015-11-06
+==================
+
+  * match a single file given as $arg1
+  * ignore contents of /mnt too, these can be ntfs (not in PRUNEFS)
+  * drop depency on cruft as cruft-common is now in the archive
+
+0.4 / 2015-06-24
+================
+
+  * release
+  * regression test: prefer in-tree pgm if available
+  * allways ignore /tmp; use ignore() instead of getlin() for a speed-up
+  * fix shellcheck warnings
+  * off-by one error in debug code
+  * typos
+  * process scripts in /etc/cruft/explain/ too !
+  * explain: move popen() code in a function
+  * get rid of upper()
+  * run 'deheader' tool
+  * handle uppercase filters in /etc/cruft/filters/ like original cruft pgm
+  * handle DEBUG info in a consistent way
+  * Makefile: simplify test_mlocate target
+
+0.3 / 2015-05-04
+================
+
+  * Fix stack-smashing error, replace strcpy by strncpy (Closes: #783723)
+  * README.gz is moved after cruft/cruft-common split
+  * make dev builds use fortify too
+
+0.2 / 2015-04-29
+================
+
+  * let "make tests" succeed when "make (all)" hasnt been run before
+  * changelo
+  * enable hardening
+  * changelog
+  * review copyright
+  * fail immediatly if can't read mlocate's db
+
+0.1 / 2014-11-27
+================
+
+  * temporary disable (non-working) setgid
+  * thanks Tobias Frost for review
+  * use CXXFLAGS & LDFLAGS
+  * use unsigned int when appropriate
+  * switch default from clang to g++
+  * Makefile: define catch-alls
+  * ship README.md in package
+  * review debian/copyright
+  * let iterative script use system's cruft-ng
+  * update .gitignore
+  * add ITP number to changelog
+  * synch with cruft-common future split
+  * proper install in Makefile
+  * lintian: debian-watch-file-in-native-package
+  * add manpage
+  * dpkg_lib: add starting point URL
+  * rename read_globs() -> read_filters() to match folder name
+  * review 2
+  * review
+  * add sample script for incremental runs
+  * add test_explain
+  * trim mlocate.h
+  * split out read_explain()
+  * rename execute_filters() -> read_explain()
+  * add README with TODO
+  * review match
+  * split out read_diversions()
+  * double check missing files that may be on tmpfs
+  * handle diverted files
+  * rebuild package
+  * rebuild package
+  * split out read_dpkg_* functions
+  * redirect 3>&1
+  * add support for /etc/cruft/filters/
+  * first package built
+  * read /proc/mounts
+  * add support for scripts in /usr/lib/cruft/explain/
+  * don't include '/' in db
+  * add test_mlocate.cc, copy shellexp.c from original cruft
+  * put glob in a function
+  * make it easier to read
+  * don't read globs twice on multiarch
+  * first fast version
+  * first version with vector
+  * draft
+  * Initial commit
