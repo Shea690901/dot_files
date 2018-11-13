@@ -2,6 +2,7 @@
 n.n.n / 2018-11-13
 ==================
 
+  * <fix>(.gitignore): allowed ChangeLog
   * <feat>(git:pre-commit): added check/Changelog
   * <ref>(git ignore): update ignore files
   * enabeling gcc colors
