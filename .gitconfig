@@ -6,6 +6,7 @@
 	feature = flow feature
 	logg = log --pretty=format:'%C(Yellow)%h %C(Cyan)%ad %C(White)%s%C(Green)%d %C(Red)[%an]' --date=short
 	hist = log --pretty=format:'%C(Yellow)%h %C(Cyan)%ad %C(White)%s%C(Green)%d %C(Red)[%an]' --date=short --graph --decorate
+	whatadd = log --diff-filter=A --
 [core]
 	editor = vim
 	excludesFile = /home/shea/.gitfiles/ignore
@@ -50,3 +51,5 @@
 	command = xz -c
 [tar "txz"]
 	command = xz -c
+[hook]
+	allowwhitespace = 0
