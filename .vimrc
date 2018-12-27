@@ -1,103 +1,103 @@
-" Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" Modeline and Notes {{{1
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker spell:
 "
 " inspired by Steve Francia´s .vimrc
 " (Apache License, Version 2.0, https://github.com/spf13/spf13-vim)
-" }
+" }}}
 
-" Environment {
+" Environment {{{1
 
-" Identify platform {
-    silent function! OSX()
-        return has('macunix')
-    endfunction
-    silent function! LINUX()
-        return has('unix') && !has('macunix') && !has('win32unix')
-    endfunction
-    silent function! CYGWIN()
-        return has('unix') && has('win32unix')
-    endfunction
-    silent function! WINDOWS()
-        return  (has('win32') || has('win64'))
-    endfunction
-" }
-
-" Basics {
-    set nocompatible        " Must be first line
-    set background=dark     " Assume a dark background
-
-    " Be nice and check for multi_byte even if the config requires
-    " multi_byte support most of the time
-    if has("multi_byte")
-        set termencoding=utf-8
-        " Let Vim use utf-8 internally, because many scripts require this
-        set encoding=utf-8
-        setglobal fileencoding=utf-8
-        " Windows has traditionally used cp1252, so it's probably wise to
-        " fallback into cp1252 instead of eg. iso-8859-15.
-        " Newer Windows files might contain utf-8 or utf-16 LE so we might
-        " want to try them first.
-        set fileencodings=ucs-bom,utf-8,utf-16le,iso-8859-15
-    endif
-    if !WINDOWS()
-        set shell=/bin/sh
-    endif
-" }
-
-" Windows Compatible {
-    " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-    " across (heterogeneous) systems easier.
-    if WINDOWS()
-      set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME
-
-      " Be nice and check for multi_byte even if the config requires
-      " multi_byte support most of the time
-      if has("multi_byte")
-        " Windows cmd.exe still uses cp850. If Windows ever moved to
-        " Powershell as the primary terminal, this would be utf-8
-        set termencoding=cp850
-        " Let Vim use utf-8 internally, because many scripts require this
-        set encoding=utf-8
-        setglobal fileencoding=utf-8
-        " Windows has traditionally used cp1252, so it's probably wise to
-        " fallback into cp1252 instead of eg. iso-8859-15.
-        " Newer Windows files might contain utf-8 or utf-16 LE so we might
-        " want to try them first.
-        set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
-      endif
-    endif
-" }
-
-" Arrow Key Fix {
-    " https://github.com/spf13/spf13-vim/issues/780
-    if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
-        inoremap <silent> <C-[>OC <RIGHT>
-    endif
-" }
-
-" Setup Bundle Support {
-    " The next three lines ensure that the ~/.vim/bundle/ system works
-    filetype off
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin('~/.vim/bundle')
-
-    " let Vundle manage Vundle, required
-    Plugin 'VundleVim/Vundle.vim'
-
-    " Add an UnBundle command {
-        function! UnPlugin(arg, ...)
-            let bundle = vundle#config#init_bundle(a:arg, a:000)
-            call filter(g:vundle#bundles, 'v:val["name_spec"] != "' . a:arg . '"')
+    " Identify platform {{{2
+        silent function! OSX()
+            return has('macunix')
         endfunction
+        silent function! LINUX()
+            return has('unix') && !has('macunix') && !has('win32unix')
+        endfunction
+        silent function! CYGWIN()
+            return has('unix') && has('win32unix')
+        endfunction
+        silent function! WINDOWS()
+            return  (has('win32') || has('win64'))
+        endfunction
+    " }}}
 
-        com! -nargs=+         UnPlugin
-            \ call UnPlugin(<args>)
-    " }
-" }
+    " Basics {{{2
+        set nocompatible        " Must be first line
+        set background=dark     " Assume a dark background
 
-" }
+        " Be nice and check for multi_byte even if the config requires
+        " multi_byte support most of the time
+        if has("multi_byte")
+            set termencoding=utf-8
+            " Let Vim use utf-8 internally, because many scripts require this
+            set encoding=utf-8
+            setglobal fileencoding=utf-8
+            " Windows has traditionally used cp1252, so it's probably wise to
+            " fallback into cp1252 instead of eg. iso-8859-15.
+            " Newer Windows files might contain utf-8 or utf-16 LE so we might
+            " want to try them first.
+            set fileencodings=ucs-bom,utf-8,utf-16le,iso-8859-15
+        endif
+        if !WINDOWS()
+            set shell=/bin/sh
+        endif
+    " }}}
 
-" my own options {
+    " Windows Compatible {{{2
+        " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
+        " across (heterogeneous) systems easier.
+        if WINDOWS()
+          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME
+
+          " Be nice and check for multi_byte even if the config requires
+          " multi_byte support most of the time
+          if has("multi_byte")
+            " Windows cmd.exe still uses cp850. If Windows ever moved to
+            " Powershell as the primary terminal, this would be utf-8
+            set termencoding=cp850
+            " Let Vim use utf-8 internally, because many scripts require this
+            set encoding=utf-8
+            setglobal fileencoding=utf-8
+            " Windows has traditionally used cp1252, so it's probably wise to
+            " fallback into cp1252 instead of eg. iso-8859-15.
+            " Newer Windows files might contain utf-8 or utf-16 LE so we might
+            " want to try them first.
+            set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+          endif
+        endif
+    " }}}
+
+    " Arrow Key Fix {{{2
+        " https://github.com/spf13/spf13-vim/issues/780
+        if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
+            inoremap <silent> <C-[>OC <RIGHT>
+        endif
+    " }}}
+
+    " Setup Bundle Support {{{2
+        " The next three lines ensure that the ~/.vim/bundle/ system works
+        filetype off
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin('~/.vim/bundle')
+
+        " let Vundle manage Vundle, required
+        Plugin 'VundleVim/Vundle.vim'
+
+        " Add an UnBundle command {{{3
+            function! UnPlugin(arg, ...)
+                let bundle = vundle#config#init_bundle(a:arg, a:000)
+                call filter(g:vundle#bundles, 'v:val["name_spec"] != "' . a:arg . '"')
+            endfunction
+
+            com! -nargs=+         UnPlugin
+                \ call UnPlugin(<args>)
+        " }}}
+    " }}}
+
+" }}}
+
+" my own options {{{1
 
 " Prevent automatically changing to open file directory
 let g:rm_no_autochdir = 1
@@ -171,11 +171,11 @@ let g:multi_cursor_start_key='+'
 " Mappings for editing/applying rm config
 let g:rm_edit_config_mapping='<leader>ev'
 let g:rm_apply_config_mapping='<leader>sv'
-" }
+" }}}
 
-" Bundles {
+" Bundles {{{1
 
-    " Deps {
+    " Deps {{{2
         Plugin 'kana/vim-textobj-user'
         Plugin 'MarcWeber/vim-addon-mw-utils'
         Plugin 'Shougo/vimproc.vim'
@@ -192,9 +192,9 @@ let g:rm_apply_config_mapping='<leader>sv'
     "         elseif executable('ack')
     "             Bundle 'mileszs/ack.vim'
     "         endif
-    " }
+    " }}}
     let g:rm_bundle_groups=''
-    " General {
+    " General {{{2
         Plugin 'Aldlevine/nerdtree-git-plugin'
         Plugin 'bling/vim-bufferline'
         Plugin 'easymotion/vim-easymotion'
@@ -231,14 +231,14 @@ let g:rm_apply_config_mapping='<leader>sv'
 "    Bundle 'jistr/vim-nerdtree-tabs'
 "    Bundle 'mhinz/vim-signify'
 "    Bundle 'osyo-manga/vim-over'
-    " }
+    " }}}
 
-    " Markdown {
+    " Markdown {{{2
         Plugin 'mzlogin/vim-markdown-toc'
         Plugin 'rhysd/vim-gfm-syntax'
-    " }
+    " }}}
 
-    " Writing {
+    " Writing {{{2
         if has("python")
             Plugin 'vim-scripts/lookup.vim'
         endif
@@ -250,13 +250,13 @@ let g:rm_apply_config_mapping='<leader>sv'
             Bundle 'reedes/vim-textobj-quote'
             Bundle 'reedes/vim-wordy'
         endif
-    " }
+    " }}}
 
-    " LaTeX {
+    " LaTeX {{{2
         Plugin 'rbonvall/vim-textobj-latex'
-    " }
+    " }}}
 
-    " General Programming {
+    " General Programming {{{2
         Plugin 'glts/vim-textobj-comment'
         Plugin 'nathanaelkane/vim-indent-guides'
         Plugin 'tpope/vim-fugitive'
@@ -276,9 +276,9 @@ let g:rm_apply_config_mapping='<leader>sv'
                 Bundle 'majutsushi/tagbar'
             endif
         endif
-    " }
+    " }}}
 
-    " Snippets & AutoComplete {
+    " Snippets & AutoComplete {{{2
         if count(g:rm_bundle_groups, 'snipmate')
             Bundle 'garbas/vim-snipmate'
             Bundle 'honza/vim-snippets'
@@ -301,29 +301,29 @@ let g:rm_apply_config_mapping='<leader>sv'
             Bundle 'Shougo/neosnippet-snippets'
             Bundle 'honza/vim-snippets'
         endif
-    " }
+    " }}}
 
-    " C/C++/lpc {
+    " C/C++/lpc {{{2
         Plugin 'libclang-vim/libclang-vim'
         Plugin 'libclang-vim/vim-textobj-clang'
-    " }
+    " }}}
 
-    " lua {
+    " lua {{{2
         if has("python")
             Plugin 'spacewander/vim-textobj-lua'
         endif
-    " }
+    " }}}
 
-    " PHP {
+    " PHP {{{2
         Plugin 'akiyan/vim-textobj-php'
         if count(g:rm_bundle_groups, 'php')
             Bundle 'rm/PIV'
             Bundle 'arnaud-lb/vim-php-namespace'
             Bundle 'beyondwords/vim-twig'
         endif
-    " }
+    " }}}
 
-    " Python {
+    " Python {{{2
         Plugin 'bps/vim-textobj-python'
         if count(g:rm_bundle_groups, 'python')
             " Pick either python-mode or pyflakes & pydoc
@@ -332,9 +332,9 @@ let g:rm_apply_config_mapping='<leader>sv'
             Bundle 'python_match.vim'
             Bundle 'pythoncomplete'
         endif
-    " }
+    " }}}
 
-    " Javascript {
+    " Javascript {{{2
         if count(g:rm_bundle_groups, 'javascript')
             Bundle 'elzr/vim-json'
             Bundle 'groenewege/vim-less'
@@ -342,17 +342,17 @@ let g:rm_apply_config_mapping='<leader>sv'
             Bundle 'briancollins/vim-jst'
             Bundle 'kchmck/vim-coffee-script'
         endif
-    " }
+    " }}}
 
-    " Scala {
+    " Scala {{{2
         if count(g:rm_bundle_groups, 'scala')
             Bundle 'derekwyatt/vim-scala'
             Bundle 'derekwyatt/vim-sbt'
             Bundle 'xptemplate'
         endif
-    " }
+    " }}}
 
-    " Haskell {
+    " Haskell {{{2
         if count(g:rm_bundle_groups, 'haskell')
             Bundle 'travitch/hasksyn'
             Bundle 'dag/vim2hs'
@@ -365,9 +365,9 @@ let g:rm_apply_config_mapping='<leader>sv'
             Bundle 'adinapoli/cumino'
             Bundle 'bitc/vim-hdevtools'
         endif
-    " }
+    " }}}
 
-    " HTML {
+    " HTML {{{2
         Plugin 'jasonlong/vim-textobj-css'
         if count(g:rm_bundle_groups, 'html')
             Bundle 'amirh/HTML-AutoCloseTag'
@@ -376,44 +376,44 @@ let g:rm_apply_config_mapping='<leader>sv'
             Bundle 'tpope/vim-haml'
             Bundle 'mattn/emmet-vim'
         endif
-    " }
+    " }}}
 
-    " Ruby {
+    " Ruby {{{2
         if count(g:rm_bundle_groups, 'ruby')
             Bundle 'tpope/vim-rails'
             let g:rubycomplete_buffer_loading = 1
             "let g:rubycomplete_classes_in_global = 1
             "let g:rubycomplete_rails = 1
         endif
-    " }
+    " }}}
 
-    " Puppet {
+    " Puppet {{{2
         if count(g:rm_bundle_groups, 'puppet')
             Bundle 'rodjek/vim-puppet'
         endif
-    " }
+    " }}}
 
-    " Go Lang {
+    " Go Lang {{{2
         if count(g:rm_bundle_groups, 'go')
             "Bundle 'Blackrush/vim-gocode'
             Bundle 'fatih/vim-go'
         endif
-    " }
+    " }}}
 
-    " Elixir {
+    " Elixir {{{2
         if count(g:rm_bundle_groups, 'elixir')
             Bundle 'elixir-lang/vim-elixir'
             Bundle 'carlosgaldino/elixir-snippets'
             Bundle 'mattreduce/vim-mix'
         endif
-    " }
+    " }}}
 
-    " vim {
+    " vim {{{2
             Plugin 'kana/vim-vspec'
             Plugin 'kana/vim-textobj-help'
-    " }
+    " }}}
 
-    " Misc {
+    " Misc {{{2
         if count(g:rm_bundle_groups, 'misc')
             Bundle 'rust-lang/rust.vim'
             Bundle 'tpope/vim-markdown'
@@ -423,17 +423,17 @@ let g:rm_apply_config_mapping='<leader>sv'
             Bundle 'quentindecock/vim-cucumber-align-pipes'
             Bundle 'saltstack/salt-vim'
         endif
-    " }
+    " }}}
 
-    " LastToLoad {
+    " LastToLoad {{{2
             Plugin 'ryanoasis/vim-devicons'           " needs special font
-    " }
+    " }}}
 
     call vundle#end()
     filetype plugin indent on   " Automatically detect file types. [required by vundle]
-" }
+" }}}
 
-" General {
+" General {{{1
 
 set background=dark         " Assume a dark background
 
@@ -507,75 +507,88 @@ if !exists('g:rm_no_restore_cursor')
     augroup END
 endif
 
-" Setting up the directories {
-    set backup                  " Backups are nice ...
-    if has('persistent_undo')
-        set undofile                " So is persistent undo ...
-        set undolevels=1000         " Maximum number of changes that can be undone
-        set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
-    endif
+    " Setting up the directories {{{2
+        set backup                  " Backups are nice ...
+        if has('persistent_undo')
+            set undofile                " So is persistent undo ...
+            set undolevels=1000         " Maximum number of changes that can be undone
+            set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+        endif
 
-    " To disable views add the following to your .vimrc.before.local file:
-    "   let g:rm_no_views = 1
-    if !exists('g:rm_no_views')
-        " Add exclusions to mkview and loadview
-        " eg: *.*, svn-commit.tmp
-        let g:skipview_files = [
-            \ '\[example pattern\]'
-            \ ]
-    endif
-" }
+        " To disable views add the following to your .vimrc.before.local file:
+        "   let g:rm_no_views = 1
+        if !exists('g:rm_no_views')
+            " Add exclusions to mkview and loadview
+            " eg: *.*, svn-commit.tmp
+            let g:skipview_files = [
+                \ '\[example pattern\]'
+                \ ]
+        endif
+    " }}}
 
-" }
+" }}}
 
-" Configure plugins {
-    " Deps {
-        " vim-addon-mw-utils {
+" Functions {{{1
+    " Append modeline after last line in buffer.
+    " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+    " files.
+    function! AppendModeline()
+      let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
+            \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+      let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+      call append(line("$"), l:modeline)
+    endfunction
+    nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+" }}}
+
+" Configure plugins {{{1
+    " Deps {{{2
+        " vim-addon-mw-utils {{{3
             augroup vim-addon-mw-utils
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " tlib_vim {
+        " tlib_vim {{{3
             augroup tlib_vim
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " stakeholders_vim {
+        " stakeholders_vim {{{3
             augroup stakeholders_vim
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " pluginstats_vim {
+        " pluginstats_vim {{{3
             let g:pluginstats_autoexport = 7        " Export every 7 days statistics about plugin usage
             augroup pluginstats_vim
                 autocmd!
             augroup END
-        " }
-    " }
+        " }}}
+    " }}}
 
-    " General {
-        " vim-addon-local-vimrc {
+    " General {{{2
+        " vim-addon-local-vimrc {{{3
             augroup vim-addon-local-vimrc
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " tskeleton_vim {
+        " tskeleton_vim {{{3
             augroup tskeleton_vim
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " foldtext_vim {
+        " foldtext_vim {{{3
             augroup foldtext_vim
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " NERDTree {
+        " NERDTree {{{3
             let g:NERDTreeDirArrowExpandable = '▸'
             let g:NERDTreeDirArrowCollapsible = '▾'
             let NERDTreeShowBookmarks=1
@@ -593,17 +606,17 @@ endif
                 autocmd StdinReadPre * let s:NERDTree_std_in=1
                 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:NERDTree_std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
             augroup END
-        " }
+        " }}}
 
-        " restore_view.vim {
+        " restore_view.vim {{{3
             set viewoptions=cursor,folds,slash,unix
             " let g:skipview_files = ['*\.vim']
             augroup restore_view.vim
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " vim-nerdtree-syntax-highlight {
+        " vim-nerdtree-syntax-highlight {{{3
             let g:NERDTreeFileExtensionHighlightFullName = 1
             let g:NERDTreeExactMatchHighlightFullName = 1
             let g:NERDTreePatternMatchHighlightFullName = 1
@@ -612,9 +625,9 @@ endif
             augroup vim-nerdtree-syntax-highlight
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " vim-colors-solarized {
+        " vim-colors-solarized {{{3
             let g:solarized_termcolors=256
             let g:solarized_termtrans=1
             let g:solarized_contrast="normal"
@@ -624,9 +637,9 @@ endif
             augroup vim-colors-solarized
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " vim-multiple-cursors {
+        " vim-multiple-cursors {{{3
             " Called once right before you start selecting multiple cursors
             function! Multiple_cursors_before()
                 if exists(':NeoCompleteLock')==2
@@ -646,9 +659,9 @@ endif
             augroup vim-multiple-cursors
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " vim-startify {
+        " vim-startify {{{3
             let g:startify_session_dir = '~/.vim/session'
             let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions', 'commands']
             let g:startify_list_order = [
@@ -698,9 +711,9 @@ endif
             augroup vim-startify
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " vim-airline {
+        " vim-airline {{{3
             let g:airline_powerline_fonts = 1   " use oowerline symbols
             if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
                 let g:airline_theme = 'solarized'
@@ -708,20 +721,20 @@ endif
             augroup vim-airline
                 autocmd!
             augroup END
-        " }
-    " }
+        " }}}
+    " }}}
 
-    " General Programming {
-        " vim-indent-guides {
+    " General Programming {{{2
+        " vim-indent-guides {{{3
             let g:indent_guides_enable_on_vim_startup = 1
             " let g:indent_guides_start_level = 1
             " let g:indent_guides_guide_size = 1
             augroup vim-indent-guides
                 autocmd!
             augroup END
-        " }
+        " }}}
 
-        " DoxygenToolkit.vim {
+        " DoxygenToolkit.vim {{{3
 
             function DoxygenToolkitNewfile()
                 if(index(["cpp", "c", "lpc", "python"], &filetype) >= 0)
@@ -749,22 +762,22 @@ endif
                 autocmd BufRead,BufNewFile *.lpc,*.lph let b:DoxygenToolkit_commentType="C++"
                 autocmd BufRead,BufNewFile * call DoxygenToolkitNewfile()
             augroup END
-        " }
-    " }
+        " }}}
+    " }}}
 
-    " Markdown {
-        " vim-gfm-syntax {
+    " Markdown {{{2
+        " vim-gfm-syntax {{{3
             let g:gfm_syntax_enable_always = 0
             let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
             augroup vim-gfm-syntax
                 autocmd!
                 autocmd BufRead,BufNew,BufNewFile README.md setlocal ft=markdown.gfm
             augroup END
-        " }
-    " }
+        " }}}
+    " }}}
 
-    " LastToLoad {
-        " vim-devicons {
+    " LastToLoad {{{2
+        " vim-devicons {{{3
             if has("gui_running")
                 set guifont=DroidSansMono\ Nerd\ Font\ 14
 
@@ -863,10 +876,10 @@ endif
                     autocmd!
                 augroup END
             endif
-        " }
+        " }}}
 
-    " }
-" }
+    " }}}
+" }}}
 
     autocmd VimEnter *
                 \   if !argc() && !exists("s:NERDTree_std_in")
@@ -875,7 +888,7 @@ endif
                 \ |   wincmd w
                 \ | endif
 
-" Vim UI {
+" Vim UI {{{1
 
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
@@ -925,9 +938,9 @@ endif
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
-" }
+" }}}
 
-" Formatting {
+" Formatting {{{1
 
     set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
@@ -958,9 +971,9 @@ endif
     " Workaround broken colour highlighting in Haskell
     autocmd FileType haskell,rust setlocal nospell
 
-" }
+" }}}
 
-" Key (re)Mappings {
+" Key (re)Mappings {{{1
 
     " The default mappings for editing and applying the rm configuration
     " are <leader>ev and <leader>sv respectively. Change them to your preference
@@ -1131,11 +1144,11 @@ endif
     " fullscreen mode for GVIM and Terminal, need 'wmctrl' in you PATH
     map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 
-" }
+" }}}
 
-" Plugins {
+" Plugins {{{1
 
-    " GoLang {
+    " GoLang {{{2
         if count(g:rm_bundle_groups, 'go')
             let g:go_highlight_functions = 1
             let g:go_highlight_methods = 1
@@ -1158,10 +1171,10 @@ endif
                 au FileType go nmap <leader>co <Plug>(go-coverage)
             augroup END
         endif
-        " }
+    " }}}
 
 
-    " TextObj Sentence {
+    " TextObj Sentence {{{2
         if count(g:rm_bundle_groups, 'writing')
             augroup textobj_sentence
               autocmd!
@@ -1170,9 +1183,9 @@ endif
               autocmd FileType text call textobj#sentence#init()
             augroup END
         endif
-    " }
+    " }}}
 
-    " TextObj Quote {
+    " TextObj Quote {{{2
         if count(g:rm_bundle_groups, 'writing')
             augroup textobj_quote
                 autocmd!
@@ -1181,25 +1194,25 @@ endif
                 autocmd FileType text call textobj#quote#init({'educate': 0})
             augroup END
         endif
-    " }
+    " }}}
 
-    " PIV {
+    " PIV {{{2
         if isdirectory(expand("~/.vim/bundle/PIV"))
             let g:DisableAutoPHPFolding = 0
             let g:PIVAutoClose = 0
         endif
-    " }
+    " }}}
 
-    " Misc {
+    " Misc {{{2
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             let g:NERDShutUp=1
         endif
         if isdirectory(expand("~/.vim/bundle/matchit.zip"))
             let b:match_ignorecase = 1
         endif
-    " }
+    " }}}
 
-    " OmniComplete {
+    " OmniComplete {{{2
         " To disable omni complete, add the following to your .vimrc.before.local file:
         "   let g:rm_no_omni_complete = 1
         if !exists('g:rm_no_omni_complete')
@@ -1228,9 +1241,9 @@ endif
             au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
             set completeopt=menu,preview,longest
         endif
-    " }
+    " }}}
 
-    " Ctags {
+    " Ctags {{{2
         set tags=./tags;/,~/.vimtags
 
         " Make tags placed in .git/tags file available in all levels of a repository
@@ -1238,22 +1251,22 @@ endif
         if gitroot != ''
             let &tags = &tags . ',' . gitroot . '/.git/tags'
         endif
-    " }
+    " }}}
 
-    " AutoCloseTag {
+    " AutoCloseTag {{{2
         " Make it so AutoCloseTag works for xml and xhtml files as well
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
-    " }
+    " }}}
 
-    " SnipMate {
+    " SnipMate {{{2
         " Setting the author var
         " If forking, please overwrite in your .vimrc.local file
         let g:snips_author = 'Steve Francia <steve.francia@gmail.com>'
-    " }
+    " }}}
 
 
-    " Tabularize {
+    " Tabularize {{{2
         if isdirectory(expand("~/.vim/bundle/tabular"))
             nmap <Leader>a& :Tabularize /&<CR>
             vmap <Leader>a& :Tabularize /&<CR>
@@ -1272,23 +1285,23 @@ endif
             nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
             vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         endif
-    " }
+    " }}}
 
-    " Session List {
+    " Session List {{{2
         set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
         if isdirectory(expand("~/.vim/bundle/sessionman.vim/"))
             nmap <leader>sl :SessionList<CR>
             nmap <leader>ss :SessionSave<CR>
             nmap <leader>sc :SessionClose<CR>
         endif
-    " }
+    " }}}
 
-    " JSON {
+    " JSON {{{2
         nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
         let g:vim_json_syntax_conceal = 0
-    " }
+    " }}}
 
-    " PyMode {
+    " PyMode {{{2
         " Disable if python support not present
         if !has('python') && !has('python3')
             let g:pymode = 0
@@ -1300,9 +1313,9 @@ endif
             let g:pymode_options = 0
             let g:pymode_rope = 0
         endif
-    " }
+    " }}}
 
-    " ctrlp {
+    " ctrlp {{{2
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
             nnoremap <silent> <D-t> :CtrlP<CR>
@@ -1342,21 +1355,21 @@ endif
                 nnoremap <Leader>fu :CtrlPFunky<Cr>
             endif
         endif
-    "}
+    " }}}
 
-    " TagBar {
+    " TagBar {{{2
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
             nnoremap <silent> <leader>tt :TagbarToggle<CR>
         endif
-    "}
+    " }}}
 
-    " Rainbow {
+    " Rainbow {{{2
         if isdirectory(expand("~/.vim/bundle/rainbow/"))
             let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
         endif
-    "}
+    " }}}
 
-    " Fugitive {
+    " Fugitive {{{2
         if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
             nnoremap <silent> <leader>gs :Gstatus<CR>
             nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -1371,9 +1384,9 @@ endif
             nnoremap <silent> <leader>gi :Git add -p %<CR>
             nnoremap <silent> <leader>gg :SignifyToggle<CR>
         endif
-    "}
+    " }}}
 
-    " YouCompleteMe {
+    " YouCompleteMe {{{2
         if count(g:rm_bundle_groups, 'youcompleteme')
             let g:acp_enableAtStartup = 0
 
@@ -1413,9 +1426,9 @@ endif
             " especially when splits are used.
             set completeopt-=preview
         endif
-    " }
+    " }}}
 
-    " neocomplete {
+    " neocomplete {{{2
         if count(g:rm_bundle_groups, 'neocomplete')
             let g:acp_enableAtStartup = 0
             let g:neocomplete#enable_at_startup = 1
@@ -1438,7 +1451,7 @@ endif
             endif
             let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-            " Plugin key-mappings {
+            " Plugin key-mappings {{{3
                 " These two lines conflict with the default digraph mapping of <C-K>
                 if !exists('g:rm_no_neosnippet_expand')
                     imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -1517,7 +1530,7 @@ endif
                 endfunction
 
                 imap <expr> <Tab> CleverTab()
-            " }
+            " }}}
 
             " Enable heavy omni completion.
             if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -1528,8 +1541,8 @@ endif
             let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
             let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
             let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-    " }
-    " neocomplcache {
+    " }}}
+    " neocomplcache {{{2
         elseif count(g:rm_bundle_groups, 'neocomplcache')
             let g:acp_enableAtStartup = 0
             let g:neocomplcache_enable_at_startup = 1
@@ -1553,7 +1566,7 @@ endif
             endif
             let g:neocomplcache_keyword_patterns._ = '\h\w*'
 
-            " Plugin key-mappings {
+            " Plugin key-mappings {{{3
                 " These two lines conflict with the default digraph mapping of <C-K>
                 imap <C-k> <Plug>(neosnippet_expand_or_jump)
                 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -1607,7 +1620,7 @@ endif
                 " <TAB>: completion.
                 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
                 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-            " }
+            " }}}
 
             " Enable omni completion.
             autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -1628,8 +1641,9 @@ endif
             let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
             let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
             let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
-    " }
-    " Normal Vim omni-completion {
+    " }}}
+
+    " Normal Vim omni-completion {{{2
     " To disable omni complete, add the following to your .vimrc.before.local file:
     "   let g:rm_no_omni_complete = 1
         elseif !exists('g:rm_no_omni_complete')
@@ -1643,9 +1657,9 @@ endif
             autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
         endif
-    " }
+    " }}}
 
-    " Snippets {
+    " Snippets {{{2
         if count(g:rm_bundle_groups, 'neocomplcache') ||
                     \ count(g:rm_bundle_groups, 'neocomplete')
 
@@ -1670,7 +1684,7 @@ endif
             " especially when splits are used.
             set completeopt-=preview
         endif
-    " }
+    " }}}
 
     " FIXME: Isn't this for Syntastic to handle?
     " Haskell post write lint and check with ghcmod
@@ -1680,25 +1694,25 @@ endif
         autocmd BufWritePost *.hs GhcModCheckAndLintAsync
     endif
 
-    " UndoTree {
+    " UndoTree {{{2
         if isdirectory(expand("~/.vim/bundle/undotree/"))
             nnoremap <Leader>u :UndotreeToggle<CR>
             " If undotree is opened, it is likely one wants to interact with it.
             let g:undotree_SetFocusWhenToggle=1
         endif
-    " }
+    " }}}
 
-    " indent_guides {
+    " indent_guides {{{2
         if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
             let g:indent_guides_guide_size = 1
             let g:indent_guides_enable_on_vim_startup = 1
         endif
-    " }
+    " }}}
 
-" }
+" }}}
 
-" GUI Settings {
+" GUI Settings {{{1
 
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
@@ -1720,4 +1734,4 @@ endif
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
 
-" }
+" }}}

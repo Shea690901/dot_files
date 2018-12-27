@@ -2,6 +2,7 @@
 n.n.n / 2018-12-27
 ==================
 
+  * <fix>(git): allow 'git flow init'
   * <feat>(prepare-commit-msg)
   * <fix>(.gitignore): allowed ChangeLog
   * <feat>(git:pre-commit): added check/Changelog
