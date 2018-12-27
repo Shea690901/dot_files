@@ -1,7 +1,8 @@
 
-n.n.n / 2018-11-13
+n.n.n / 2018-12-27
 ==================
 
+  * <feat>(prepare-commit-msg)
   * <fix>(.gitignore): allowed ChangeLog
   * <feat>(git:pre-commit): added check/Changelog
   * <ref>(git ignore): update ignore files
