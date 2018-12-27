@@ -46,7 +46,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="verbose"
 GIT_PS1_SHOWCOLORHINTS=1
 SCD_HISTFILE=${ZDOTDIR}/scd/history
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=true
 ZSH_TMUX_AUTOQUIT=$ZSH_TMUX_AUTOSTART
@@ -149,4 +149,4 @@ alias fgrep='fgrep --color=auto'                # show differences in colour
 alias ls='ls --color=auto'                      # classify files in colour
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
-alias ll='ls -lag'                              # long list
+alias ll='ls -la'                              # long list
