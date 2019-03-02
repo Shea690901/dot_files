@@ -1,7 +1,9 @@
 
-n.n.n / 2018-12-27
+n.n.n / 2019-03-03
 ==================
 
+  * <fix>(pre-commit): hpk
+  * <fix>(zsh): corrected 'll' alias
   * <ref>(vim): reformatting of .vimrc
   * <fix>(git): allow 'git flow init'
   * <feat>(prepare-commit-msg)
@@ -15,6 +17,1479 @@ n.n.n / 2018-12-27
   * <fix>(git hooks): fix for repo without any commits
   * <feat>(*): update for lubuntu
   * <feat>(hooks): use global hooks
+  * <feat>: added some plugins
+  * <feat>(modules): added oh-my-git module
+  * <feat>(git setup)
+  * <fix>(font): using monospaced font for terminal
+  * Merge tag 'v0.1.1' into develop
+  * Merge branch 'release/v0.1.1'
+  * <ref>(zsh completion): slight modification
+  * <ref>(vim): update module origin
+  * <docs>(LICENSE) reintroduced dfault license
+  * <ref>(LICENSE): created dir for license files
+  * Merge tag 'v0.1.0' into develop
+  * Merge branch 'release/v0.1.0'
+  * <feat>: version 0.1
+  * Initial commit
+
+4.7.0 / 2019-02-09
+==================
+
+  * Version 4.7.0
+  * git-pr: emphasized that the remote is required when pulling multiple PRs.
+  * Merge pull request #743 from spacewander/allow_multiple_pr
+  * git-pr: accpeted multiple GitHub URL or ID with remote.
+  * git-pr: added <[remote]:pr number> option.
+  * Merge pull request #740 from spacewander/tweak_man_readme
+  * doc: clarify the current working directory when building the docs.
+  * Merge pull request #739 from sleagon/master
+  * feat: Add -s(--soft) for git sync
+  * Merge pull request #738 from StuartFeldt/add-symlinks-to-bulk-command
+  * Adding support for symlink directories in bulk command
+  * Merge pull request #737 from smancill/standup-ensure-colors
+  * git-standup: ensure color usage
+  * Merge pull request #736 from spacewander/git_force_clone_not_need_git_repo
+  * misc: sort command list in alphabetical order
+  * git-force-clone: should not need git repo
+  * Merge pull request #734 from zentarul/master
+  * Fix missing double quotes after %DEBUG%
+  * install.cmd: tweak comments
+  * Merge pull request #732 from sachin-gupta/sg-mods
+  * Fix: Dev: `/E` option required with MORE for working on higher version of Windows 10 (**_Build 17134_**)
+  * Merge pull request #729 from orestisf1993/patch-1
+  * git-rename-branch: Don't fail if remote doesn't exist
+  * Bump version to 4.7.0-dev.
+
+4.6.0 / 2018-08-11
+==================
+
+  * Version 4.6.0
+  * Merge pull request #727 from spacewander/strip_caret
+  * Makefile: change the installed manpage destination in FreeBSD (#725)
+  * git-changelog: should remove ^0 suffix from the commit description.
+  * Merge pull request #722 from spacewander/git_changelog_start_commit
+  * git-changelog: add --start-commit option, like --start-tag but for commit
+  * Merge pull request #721 from spacewander/git_changelog_list_newline
+  * git-changelog: add missing newline to the plain output
+  * Merge pull request #713 from pabs3/docs
+  * Merge pull request #717 from flatcap/ignore-private
+  * optimisation of mkdir
+  * Ensure info dir exists
+  * add: git-ignore -p (private to repo)
+  * Merge pull request #716 from francoism90/patch-1
+  * Added Arch Linux
+  * Merge pull request #714 from spacewander/fix_detect_sed_i_support
+  * Documentation rebuild: git-sed.* flags argument
+  * Documentation rebuild: git-clear.html whitespace removal
+  * Documentation rebuild: git-extras.* updates
+  * Documentation rebuild: index.txt updates
+  * Documentation rebuild: dates and headers
+  * Remove one of the documentation building tools
+  * Remove some trailing whitespace
+  * Merge pull request #715 from tjaartvdwalt/master
+  * Major/Minor release should reset minor/patch versions to 0
+  * Fix greedy match of version number
+  * git-sed: fix previous bsd sed workaround
+  * Merge pull request #712 from spacewander/detect_sed_i_support
+  * git-sed: detect sed -i support and work around for the BSD sed
+  * Merge pull request #709 from pabs3/git-sed
+  * git-sed: discover a separator when the / character is used in arguments
+  * git-sed: pass the -r option to the xargs command
+  * git-sed: Allow the flags to be passed as a third argument
+  * Merge pull request #706 from MontakOleg/delete-branch
+  * Fix deleting branches without upstream
+  * Merge pull request #704 from ramlev/master
+  * Remove double path delimiters in zsh description
+  * Merge pull request #703 from psprint/master
+  * Installation.md: Zsh-plugin method which doesn't require root access
+  * Bump version to 4.6.0-dev.
+
+4.5.0 / 2018-02-18
+==================
+
+  * Version 4.5.0
+  * git-release: show message if nothing given after --semver
+  * doc: update git-extras index
+  * Merge pull request #639 from spacewander/avoid_deleting_local_upstream
+  * Merge pull request #693 from xakraz/fix-mktemp-pattern
+  * git-release: add --no-empty-commit for empty commit hater
+  * git-release: create an empty release commit if there is nothing to commit
+  * git-summary: unescape tab for linux column utility
+  * git-undo: add confirmation when `-h` is specified
+  * Fixed mktemp template to support busybox (and Alpine linux)
+  * Merge pull request #691 from koppor/patch-1
+  * Remove trailing dot of German Windows
+  * Merge pull request #690 from dominicbarnes/release-push-tags-first
+  * feat(git-release): push tags first to help ci tools not miss them
+  * Merge pull request #687 from spacewander/add_semver
+  * git-release: handle extra non-numeric prefix in tag with --semver
+  * Merge pull request #686 from spacewander/add_semver
+  * git-release: add --semver option
+  * Merge pull request #684 from spacewander/ignore_unknown_arg
+  * git-release: function usage doesn't exist, ignore unknown argument instead
+  * Merge pull request #681 from EdwardBetts/master
+  * Fix so 'git rebase-patch' is described once.
+  * Merge pull request #680 from lhernanz/master
+  * Preserve the existing user_commands in the git completion system
+  * Merge pull request #679 from spacewander/update_git_changelog_doc
+  * Merge pull request #678 from timhwang21/devs/thwang/docs-update
+  * Mention how to control changelog format in docs of git-changelog
+  * Docs> Add -- in front of cmd for git log
+  * Merge pull request #676 from gormac/master
+  * Fix 'Invalid code page' error when resetting code page at end of script
+  * Merge pull request #675 from quite/effort-cursor
+  * git-effort: restore normal (visible) cursor properly
+  * Merge pull request #674 from tj/pull-request-two-factor-auth
+  * Add GitHub two-factor auth support to git-pull-request
+  * Merge pull request #672 from mehandes/patch-1
+  * Added Nix/NixOS method of installation
+  * Merge pull request #671 from sambostock/improve-ignore-io
+  * Use local variables & format strings
+  * Fix omission when alphabetically printing ignores
+  * Remove arbitrary column limit on ignore-io
+  * Merge pull request #670 from zeeshanu/patch-1
+  * Fix typo
+  * Merge pull request #668 from isaacm/patch-1
+  * Fix typos, remove trailing whitespace
+  * install: submit brew patch to upstream
+  * Bump version to 4.5.0-dev.
+  * git-delete-branch: avoid deleting local upstream
+
+4.4.0 / 2017-07-15
+==================
+
+  * Version 4.4.0
+  * install: display absolute path of zsh completion script
+  * zsh: update completion of git bug|chore|feature|refactor|create-branch
+  * git summary: use more common way to cd to top level directory
+  * Merge pull request #664 from mapitman/master
+  * Update man page for `create-branch`
+  * Update man pages
+  * Update docs for new behavior
+  * Use "$@" instead of $@
+  * Consolidate feature/bug/chore/refactor logic
+  * Allow -r parameter to be in any order in command line
+  * Add ability to specify a remote
+  * Fix Issue #186
+  * fix a wrong name in installation message
+  * Merge pull request #662 from nschlimm/master
+  * Added git-bulk to not_need_git_repo
+  * fix various typos
+  * Merge pull request #659 from bersace/mr
+  * Add git-mr to checkout GitLab merge requests
+  * Merge pull request #656 from dueringa/patch-1
+  * Fix typo in git-extras
+  * Merge pull request #654 from spacewander/replace-xargs-r
+  * git-delete-merged-branches: replace xargs -r option
+  * Bump version to 4.4.0-dev.
+
+4.3.0 / 2017-05-05
+==================
+
+  *  Version 4.3.0
+  * git-authors: remove trailing spaces
+  * Merge pull request #649 from adriaanzon/patch-1
+  * Merge pull request #651 from spacewander/pass-arguments-to-hooks
+  * git-release: add pre-release failure message
+  * git release: stop if pre-release hook fails
+  * git-release: update docs
+  * pass release arguments to pre/post-release scripts
+  * git-fork: Let curl exit with error code on fail
+  * Merge pull request #647 from SMillerDev/patch-1
+  * Add BSD cat support
+  * Merge pull request #646 from spacewander/upgrade-git-standup
+  * git-standup: update zsh completion
+  * git-standup: also update the docs
+  * git-standup: add sanity check to -d option and overwrite -w option
+  * git-standup: upgrade interface to catch up with kamranahmedse/git-standup
+  * Merge pull request #642 from nschlimm/git-bulk-command
+  * Typos again
+  * Corrected repository location print out and docs ws-root-directory absolute path
+  * Codereview Spacewander - whitespaces in workspace locations
+  * Merge pull request #643 from jonyamo/git-pr_clean-git-config
+  * Review from spacewander
+  * Remove slashes from git-config command
+  * Merge branch 'master' into git-bulk-command
+  * Merge pull request #636 from spacewander/fix_rename_branch
+  * Merge pull request #641 from tj/fix_pull_request_upstream
+  * git-rename-branch: use detected upstream remote
+  * git-pull-request: use detected upstream remote
+  * Better behaviour in non workspace directories
+  * Current workspace is default target of bulk operations
+  * Even shorter
+  * Code refactor
+  * bug fix in single ws mode
+  * code formatting
+  * Fix in git-bulk head
+  * New Command git-bulk initial commit
+  * Merge pull request #635 from spacewander/fix_rename_branch
+  * fix syntax & name variables better in rename-branch
+  * Merge pull request #633 from nschlimm/columnsflex
+  * taken out duplicate columns setting
+  * Optimized file length calculation
+  * Columns in git-effort adopt to file length
+  * Merge pull request #630 from jjlin/rhel/centos
+  * Add RHEL/CentOS installation
+  * Merge pull request #629 from dankilman/fix-git-effort
+  * Fix git-effort for paths starting with dash
+  * Merge pull request #626 from jldugger/jldugger/email-fallback
+  * fall back to EMAIL when user.email is not configured
+  * Merge pull request #619 from spacewander/git-summary-separator
+  * Merge pull request #624 from spacewander/has_git_commit
+  * Check commit existed before running some commands
+  * Merge pull request #615 from techjacker/master
+  * Adds SSH prompt to git fork
+  * use U+266A instead of comma as separator
+  * Merge pull request #610 from nicolaiskogheim/fix-spelling
+  * spelling: {a,an} archive. Fix #609
+  * Merge pull request #606 from spacewander/fix-git-extras-update
+  * fix git-extras update and tweak Windows detection
+  * Merge pull request #585 from tardypad/stamp
+  * Merge pull request #578 from tardypad/count_fix_extra_arguments
+  * stamp: show real looking results in Commands.md doc
+  * stamp: add warning in documentation about corner case
+  * stamp: add zsh autocompletion
+  * stamp: remove non used multiple lines error messages
+  * stamp: the message consists in all terms after the identifier
+  * stamp: identifier is case insensitive for the replacement
+  * stamp: add to Commands doc
+  * stamp: add manual
+  * stamp: add bash autocompletion
+  * stamp: add replace option
+  * stamp: display new full message as result
+  * stamp: add extra optional message parameter
+  * stamp: add basic script
+  * Merge pull request #601 from richardfearn/git-sed-spaces-in-filenames
+  * Merge pull request #603 from richardfearn/git-clear-consistent-defaults
+  * Merge pull request #602 from richardfearn/git-delete-merged-branches-fix
+  * git-clear-soft: change default yes/no option to "no" (as with git-clear)
+  * git-delete-merged-branches: use "xargs -r" to prevent error when there are no branches to delete
+  * git-sed: use "git grep -z" and "xargs -0" to cope with spaces in filenames
+  * Merge pull request #600 from richardfearn/git-fresh-branch-fix
+  * Merge pull request #599 from richardfearn/improve-yes-no-prompts
+  * git-fresh-branch: fix handling of 'yes' response when there are changes
+  * git-{clear,clear-soft,sync}: improve yes/no prompts
+  * Merge pull request #598 from richardfearn/fix-git-sed-typo
+  * Merge pull request #597 from richardfearn/commands-md-improvements
+  * git-sed: fix 'unkonwn' typo
+  * Commands.md: add link to 'git summary' in 'git line-summary' documentation
+  * Commands.md: add links to "git bug", etc. to index
+  * Commands.md: add 'git rscp' link to 'git scp' documentation
+  * Commands.md: put commands in alphabetical order
+  * Merge pull request #596 from richardfearn/archive-file-typo-fix
+  * Fix typo in archive-file documentation
+  * Merge pull request #595 from aaguilera/master
+  * fix: git-squash docs. Replaced 'actual' with 'current'
+  * Merge pull request #592 from spacewander/fix_integrity
+  * Add travis ci
+  * Merge pull request #594 from spacewander/fix_release
+  * show all commit messages if no tag found
+  * strip out branches like trap-effort-signals
+  * Add git-reauthor to completion script
+  * Relax #! format check
+  * Merge pull request #591 from nottrobin/force-clone
+  * Be explicit about only resetting git directories
+  * Fix branch option parsing
+  * Fix usage
+  * Use LC_ALL=C for locale consistency
+  * Remove unnecessary check
+  * git-force-clone
+  * Merge pull request #590 from bbbco/changelog-tmp-file-fix
+  * Need to remove the temp file regardless
+  * Merge pull request #589 from yelinaung/yla/typo-fixes
+  * Spelling fixes for the roon file and html files
+  * Spelling fixes
+  * Merge pull request #588 from spacewander/no-email
+  * Add --no-email to git-author
+  * Bump version to 4.3.0-dev.
+  * count: remove usage of extra arguments for detailed display
+
+4.2.0 / 2016-10-08
+==================
+
+  * Version 4.2.0
+  * remove contributors' email addresses to avoid #544
+  * promote two maintainers
+  * Merge pull request #584 from grindhold/fix-583
+  * fixes #583
+  * update docs to clarify rename-branch (#581)
+  * Make git-pr set up branch for pulling (#570)
+  * add link to ronn git repo (#575)
+  * add rename-branch command (#576)
+  * Merge pull request #569 from nicolaiskogheim/docs/repl-cleanup
+  * git-repl: improve and clean up docs
+  * Merge pull request #568 from wcmonty/master
+  * Add 'exit' to git-repl command documentation
+  * Add built in 'exit' command to git-repl
+  * Merge pull request #567 from nicolaiskogheim/git-pull-request-fix#546
+  * pull-request: should read local config if present
+  * Merge pull request #566 from nfischer/fix-man-page-typo
+  * git-release: fix typo in documentation
+  * Merge pull request #565 from nicolaiskogheim/git-missing-argument-parsing
+  * git-missing: do proper argument parsing. Fix #562
+  * Merge pull request #563 from lukechilds/improve-fork
+  * Update git-fork man page
+  * Merge pull request #564 from sorbits/patch-3
+  * Remove a non-contributor from AUTHORS
+  * Update docs to reflect new git-fork behaviour
+  * Set fork remotes using ssh if available
+  * Add git reauthor (#548)
+  * Merge pull request #555 from spacewander/contributing
+  * modify CONTRIBUTING.md again
+  * Merge pull request #557 from spacewander/check_integrity
+  * Merge pull request #561 from lukechilds/improve-json-encoding
+  * Clean up git-pull-request
+  * Improve JSON encoding
+  * Merge pull request #560 from lukechilds/patch-2
+  * Merge pull request #559 from lukechilds/patch-1
+  * Fix incorrect comment in git-fork
+  * Fix typo in Installation.md
+  * Merge pull request #558 from spacewander/fix_legacy_problem
+  * add doc for git-pull-request and others
+  * modify CONTRIBUTING.md
+  * update check_integrity with nicolaiskogheim's patch
+  * add git-release-patch to Commands.md
+  * add git-back to Commands.md
+  * regenerate git-obliterate doc
+  * follow common shebang
+  * add git-show-(un)merged-branches to Commands.md
+  * Add check integrity script
+  * Add contributing guideline
+  * Merge pull request #554 from npcode/fork-origin
+  * fork: Fetch `origin` after forking
+  * fork: Quote refs by backtick rather than single quote
+  * fork: Add git-fork.html removed by accident
+  * Merge pull request #553 from npcode/fork-origin
+  * fork: Describe the behavior if current dir is repo
+  * fork: Rename 'origin' to 'upstream' after forking
+  * Merge pull request #552 from npcode/fork-origin
+  * fork: Fork 'origin' remote repo if repo is not given
+  * Merge pull request #551 from spacewander/zsh-completion
+  * submit zsh completion script to upstream
+  * update the title of git-clear-soft
+  * Merge pull request #550 from phuu/patch-1
+  * Add note about overwriting git aliases
+  * Merge pull request #547 from svanburen/patch-1
+  * Fix typo
+  * Merge pull request #545 from spacewander/via_ssh
+  * fix git-fork by removing '.git'
+  * Merge pull request #543 from spacewander/via_ssh
+  * fix the support for forking via ssh
+  * Merge pull request #412 from spacewander/git-obliterate
+  * Merge pull request #536 from spacewander/delete_submodule
+  * Merge pull request #537 from vigilancer/master
+  * update documentation. fix "git ignore-io" flags
+  * Update the way to delete submodule
+  * Merge pull request #533 from Addvilz/add-git-clear-soft-modify-git-clear
+  * Edit description of git clear-soft to indicate hard reset
+  * Add git-clear-soft command 	Modify git-clear to indicate default behavior of removing git ignored files
+  * Merge pull request #513 from lgastako/master
+  * Merge pull request #525 from spacewander/git-standup
+  * Merge pull request #526 from carrodher/patch-1
+  * Add Ubuntu installation
+  * add docs for git standup
+  * add git-standup
+  * Merge pull request #519 from ifdattic/patch-1
+  * Fix typo: typess => types
+  * Merge pull request #515 from ammarnajjar/fedora-install
+  * Add Fedora package-manager installation instruction
+  * Add -m flag to git-setup to set the initial commit message.
+  * Merge pull request #512 from Lee-W/master
+  * Merge pull request #1 from tj/master
+  * Fix ignore-io searching bug
+  * Merge pull request #508 from pra85/patch-1
+  * Mention initial copyright year and add contributors to copyright
+  * Merge pull request #509 from supercrabtree/master
+  * Fix typo in git-clear documentation
+  * Bump version to 4.2.0-dev.
+  * add missing git-obliterate documentation
+  * now we can specify a commit range for git-obliterate
+
+4.1.0 / 2016-01-24
+==================
+
+  * Version 4.1.0
+  * Merge pull request #503 from spacewander/fix_502
+  * Merge pull request #507 from rstacruz/git-pr-manual
+  * Regerenate git-pr.html
+  * Merge pull request #506 from rstacruz/git-pr-manual
+  * Update git PR manual to mention URLs
+  * handle GIT_EDITOR which contains space
+  * use ps -f and awk to emulate pgrep
+  * Merge pull request #500 from kumon/master
+  * add upstream check & bugfix
+  * add example of git-sync
+  * upstream is used by default
+  * Merge pull request #497 from JanSchulz/win_inst2
+  * add git-sync
+  * Merge pull request #499 from tj/add-bsd-installation
+  * Add BSD installation instructions.
+  * installation.md: Update information about column.exe
+  * install.cmd: add a check for write rights to the install folder
+  * install.cmd: properly escape the ! in the shebang line
+  * Merge pull request #496 from JanSchulz/win_inst
+  * Make the win installer more robust
+  * Merge pull request #494 from apjanke/fix-git-repo-inclusion
+  * Merge pull request #495 from JanSchulz/patch-1
+  * Update Installation.md
+  * Makefile: fix inverted list of commands that use is_git_repo
+  * Add Gitter badge.
+  * Bump version to 4.1.0-dev.
+
+4.0.0 / 2015-12-28
+==================
+
+  * Version 4.0.0
+  * Add David Rogers to AUTHORS.
+  * Merge pull request #481 from al-the-x/multi-file-touch
+  * Better USAGE message
+  * Touch multiple files supplied
+  * Use `$@` instead of `$*` re #467
+  * Update AUTHORS.
+  * Merge pull request #490 from apjanke/etc-under-prefix
+  * installation: put $SYSCONFDIR (/etc) under $PREFIX by default
+  * Merge pull request #489 from apjanke/customize-etcdir
+  * Makefile: allow customizing of SYSCONFDIR (/etc) location
+  * Merge pull request #488 from apjanke/git-clear-shebang
+  * Fix missing shebang in git-clear and missing +x on others
+  * Update all man pages.
+  * Merge pull request #479 from JanSchulz/global_gitignore
+  * Merge pull request #448 from Lee-W/master
+  * Add more info how to set global gitignore
+  * Regenerate git-changelog man pages (.html and .1) for #471.
+  * Merge pull request #471 from JanSchulz/merge-changelog
+  * git-changelog: option to only use merges
+  * Merge pull request #469 from JanSchulz/windows-install
+  * Merge pull request #468 from spacewander/use-real-purplish
+  * Use the default installation path in install.cmd
+  * use real purplish
+  * Merge pull request #466 from anarcat/master
+  * Merge pull request #465 from spacewander/fix-color
+  * add simple sed command
+  * disable color if the output is not printed to tty
+  * replace wildcard '?' to literal '?'
+  * git-scp: use portable terminal escape sequences
+  * Merge pull request #460 from apjanke/summary-defensive-locale
+  * Merge pull request #458 from apjanke/makefile-refactor-libs
+  * Merge pull request #459 from apjanke/effort-portable-colors
+  * git-summary: protect against character encoding issues with LC_ALL=C
+  * git-effort: use portable terminal escape sequences
+  * Makefile: refactor is-git-repo inclusion logic
+  * Merge pull request #454 from apjanke/makefile-escape-mktemp
+  * Makefile: escape $ used inside eval as shell variable
+  * Merge pull request #453 from jhnns/pr-url
+  * Add possibility to also checkout pull requests based on GitHub urls
+  * Merge pull request #452 from akimd/summary-locale
+  * summary: beware of locale issues, and pass options to line-summary
+  * Merge pull request #443 from Natim/patch-1
+  * Merge pull request #444 from spacewander/install_without_alias
+  * Merge pull request #446 from ssssam/fix-active-days
+  * Merge pull request #447 from RichardLitt/patch-1
+  * Update git-ignore-io mannual
+  * Replace "export" option with "replace" in git-ignore-io
+  * Remove exclamation mark
+  * Remove warning when search without word.
+  * Fix typo
+  * Add warning when there is not argument after search, append and export
+  * Fix ~/.gi_list not exist problem
+  * Alphabetized list
+  * effort, summary: Correctly estimate the number of active days
+  * Merge pull request #445 from nicolaiskogheim/straighten-up-effort
+  * effort: change order of arguments to function
+  * effort: add usage message
+  * effort: More robust argument parsing
+  * add alias conflict prompt
+  * Merge pull request #440 from spacewander/features/feature-alias
+  * Add full name for list option
+  * Fix usage error
+  * Make sure git-authors doesn't return twice the same one.
+  * update git-feature docs
+  * add alias to git-feature
+  * Modify print_last_modified_time to make it Linux compatible
+  * Merge pull request #441 from spacewander/features/remove-checkout
+  * Merge branch 'master' of https://github.com/Lee-W/git-extras
+  * Fix doc error for git-ignore-io
+  * Fix doc error for git-ignore-io
+  * Remove redundant \n in tr
+  * Not to update list each time git-ignore-io is executed
+  * Refactor git-ignore-io and remove .gitignore
+  * Update manual and description in Commands
+  * remove duplicate checkout
+  * Generate manual using ronn for git-ignore-io
+  * Finish manual for git-ignore-io
+  * Fix typo
+  * Add description to Commands.md for git-ignore-io
+  * Implement search function or git-ignore-io
+  * Remove help from git-ignore-io
+  * Init gitignore and ignore vim osx temp files
+  * Merge gi_extension project into git extras as git-ignore-io
+  * Merge pull request #436 from nwinkler/patch-1
+  * Merge pull request #437 from nwinkler/patch-2
+  * Fixed typo in install.sh
+  * Updated documentation for git-ignore
+  * Merge pull request #435 from nwinkler/patch-1
+  * Added details to git-pr documentation
+  * Merge pull request #433 from grindhold/git-clear
+  * made more precise security-question.
+  * more concise implementation of git-clear
+  * Fix typo in variable name
+  * added git-clear to Commands.md
+  * added manpage for git-clear
+  * implemented git-clear
+  * Merge pull request #432 from stevemao/patch-1
+  * fix link of `git feature|refactor|bug|chore`
+  * Merge pull request #425 from nicolaiskogheim/makefile-fix
+  * Mark default task as .PHONY
+  * Merge pull request #430 from spacewander/git-extras
+  * make it possible to update via `git extras`
+  * Merge pull request #428 from spacewander/update-commands
+  * Merge pull request #429 from nicolaiskogheim/merge-into-ff-only
+  * merge-into: change --ff option to --ff-only. fix #421
+  * update Commands.md
+  * Merge pull request #411 from Natim/add-psykorebase-command
+  * Improve man page presentation.
+  * Add documentation.
+  * Merge pull request #426 from spacewander/update-for-new-version
+  * change 'search-term' to 'search-pattern'
+  * abort git-alias when too many arguments given.
+  * Merge pull request #423 from nicolaiskogheim/effort-paths
+  * Merge pull request #424 from nicolaiskogheim/fork-docs
+  * Merge pull request #422 from nicolaiskogheim/effort-bugfix
+  * effort docs: add note about omitting unsorted results
+  * effort docs: add example with directories
+  * effort docs: filename -> path
+  * effort docs: Adjust numbers in example
+  * effort: rename 'file' to 'path' to be more accurate
+  * Set default make task to be install
+  * fork docs: change SSH to HTTPS in example
+  * effort: fix active days always 1
+  * Merge pull request #419 from nicolaiskogheim/git-guilt
+  * Merge pull request #420 from nicolaiskogheim/git-summary
+  * line-summary: 'function f{...' -> 'f() {...'
+  * line-summary: add missing quotation marks
+  * line-summary: tighten regex
+  * summary docs: Remove --line example
+  * summary docs: explain relation to git-line-summary
+  * summary docs: use correct order of arguments
+  * guilt: remove --help option
+  * guilt: document call without arguments
+  * guilt docs: Capitalize letters
+  * guilt: Adds simplified example
+  * Merge pull request #418 from nicolaiskogheim/fork-bugfix
+  * fork: http-urls had colon instead of slash
+  * Merge pull request #416 from nicolaiskogheim/fork-docs
+  * Merge pull request #415 from nicolaiskogheim/contrib-docs
+  * fork: original->upstream in docs
+  * contrib: update docs
+  * Merge pull request #414 from nicolaiskogheim/alias-docs
+  * alias: docs
+  * Add completion for git-psykorebase.
+  * Create a bash version of git-psykorebase — Fixes #411
+  * Merge pull request #409 from nicolaiskogheim/refactor-alias
+  * alias: polish the docs
+  * alias: bugfix
+  * Merge pull request #408 from nicolaiskogheim/refactor-contrib
+  * contrib: refactor, and conform to git
+  * Merge pull request #405 from nicolaiskogheim/fix-filenames-with-spaces
+  * Merge pull request #404 from nicolaiskogheim/freebsd-fix
+  * Merge pull request #406 from nicolaiskogheim/portable-msysgit
+  * git-alias: use sed insted of colrm
+  * git-changelog: use cp instead of mv
+  * git-extras: use git-help instead of man
+  * add install script for PortableGit(msysgit)
+  * Quote variables bc of filenames with spaces
+  * Guard against 'seq 0'
+  * Fix error on FreeBSD with process substitution
+  * Pass --import-functions if required
+  * Merge pull request #403 from andreicristianpetcu/master
+  * effort: documentation for git effort --since #326
+  * Merge pull request #401 from nicolaiskogheim/effort-above-error-on-NaN
+  * effort: error on bad value to --above
+  * Merge pull request #400 from nicolaiskogheim/fix-off-by-one
+  * Merge pull request #391 from nicolaiskogheim/effort-limit-commits
+  * Merge pull request #388 from chernjie/release
+  * Merge pull request #398 from nicolaiskogheim/git-graft
+  * Merge pull request #399 from nicolaiskogheim/git-archive-file
+  * archive-file: cleaner way to get current branch
+  * graft: Require destination branch. Fix #23
+  * effort: don't count untouched files
+  * Add info about new options to man pages
+  * Add completion for more options to effort
+  * Do proper argument parsing
+  * effort: allow sending options to log. Fix #326
+  * Merge pull request #396 from tocker/bug/changelog-catch-head
+  * Catch "HEAD -> master" when creating the changelog
+  * Merge pull request #394 from markeissler/changelog-signal-trap
+  * Remove unused var.
+  * Merge pull request #390 from nicolaiskogheim/effort-color-relative-to-above
+  * Handle signals in git-changelog.
+  * Meke coloring respect --above. Fix 74
+  * Merge pull request #392 from nicolaiskogheim/WIP-effort-parallelize
+  * Avoid spawning subshell
+  * Remove unnecessary call to cat
+  * perf: reduce calls to git log
+  * Parallelize git-effort with xargs
+  * Alter options to git log. Remove pipe
+  * cd man && ./manning-up.sh && git diff --stat | grep ' 2 ' | awk '{print }' | xargs git checkout --
+  * Merge pull request #386 from rstacruz/patch-2
+  * Use https for git-fork
+  * Merge pull request #385 from gisphm/master
+  * added windows installation section in the Installation.md
+  * format install.cmd
+  * add install.cmd for installation on windows
+  * Merge pull request #383 from Somasis/master
+  * Makefile: Use a more portable mktemp invocation
+  * Using shorter URL
+  * Merge pull request #381 from spacewander/master
+  * installation with curl and bash
+  * Merge pull request #380 from spacewander/master
+  * keep installation silent
+  * Merge pull request #378 from spacewander/master
+  * update installation in `git-extras update`
+  * Merge pull request #377 from go2null/master
+  * FIXes location of `--` for `grep`
+  * FIXes 'mktemp' to work again on Linux
+  * Merge pull request #373 from zlx/feature/document_line_summary
+  * Document for git-line-summary
+  * Merge pull request #372 from spacewander/patch-1
+  * install the latest release version of git-extras
+  * Merge pull request #370 from phigoro/master
+  * git-effort: replace "wc | cut" with "wc | awk"
+  * Merge pull request #369 from phigoro/master
+  * align hashbang of git-guilt & git-merge-into
+  * Merge pull request #368 from zlx/feature/strong_line_summary
+  * Fix Fatal for git-line-summary
+  * Merge pull request #365 from rkennedy/bug-ignore-regex2
+  * Don't treat ignored patterns as regexps
+
+3.0.0 / 2015-04-27
+==================
+
+  * Version 3.0.0
+  * Merge pull request #363 from chernjie/pre-release-docs
+  * run pre-release ./manning-up.sh
+  * Merge pull request #362 from chernjie/git-scp
+  * Updated documentation for git-scp and slight feature change
+  * Merge pull request #359 from chernjie/docs
+  * Merge pull request #361 from markeissler/better-changelog-fixes
+  * Fix git tag substring extraction for bash 3.2.
+  * Merge pull request #360 from spacewander/master
+  * Merge pull request #355 from markeissler/better-changelog-fixes
+  * Merge branch 'better-changelog-fixes' of github.com:markeissler/git-extras into better-changelog-fixes
+  * add support for git version below 2.2.0
+  * Fix git-changelog for compatibility for bash<4. Fixes #337, #338
+  * Merge pull request #1 from spacewander/better-changelog-fixes
+  * correct the broken regex
+  * Rearrange documentation links, see #358
+  * Merge branch 'https://github.com/tj/git-extras.wiki/master' into docs, see #358
+  * Merge pull request #357 from imsky/merge-repo
+  * git-merge-repo
+  * git merge-repo
+  * add wiki for git-guilt
+  * add support for git version below 2.2.0
+  * Fix git-changelog for compatibility for bash<4. Fixes #337, #338
+  * Merge pull request #349 from spacewander/git-guilt
+  * fix indentation errors in git guilt
+  * Merge pull request #345 from spacewander/git-guilt
+  * Hope to fix #341
+  * Merge pull request #344 from Somasis/master
+  * use argument separator for usages of `grep` which can choke on weird input
+  * helper/reset-env: helper to prevent GREP_OPTIONS from causing issues
+  * Merge pull request #342 from spacewander/git-guilt
+  * add docs for git guilt
+  * add git-guilt
+  * Merge pull request #340 from spacewander/git-effort
+  * sort unless there is only one item
+  * Merge pull request #333 from paulschreiber/merged-branches
+  * add show-merged-branches and show-unmerged-branches
+  * Merge pull request #334 from paulschreiber/dont-delete-svn-branch
+  * when deleting merged branches, preserve "svn" branch for git-svn Fixed #328
+  * Merge pull request #324 from chernjie/git-ignore
+  * Merge pull request #331 from markeissler/better-changelog-fixes
+  * Fix tag trapping when HEAD and tag point to same commit.
+  * Fix gitflow commit history output.
+  * Merge pull request #327 from markeissler/better-changelog-completion
+  * Updated bash completions for better-changelog.
+  * Update docs for revised git-changelog.
+  * Merge pull request #325 from markeissler/better-changelog
+  * Complete rewrite to support commit ranges for pretty and list output.
+  * Support ~ in add_patterns for git-ignore
+  * Support ~ in show git-ignore
+  * add wiki for git-merge-into
+  * Merge pull request #323 from spacewander/master
+  * add docs for git-merge-into
+  * add merge-into to merge two branches quickly
+  * Merge pull request #322 from andrewsomething/master
+  * git-fresh-branch: Check for changes and prompt for input before nuking. (Issue: #142)
+  * Merge pull request #308 from spacewander/git-utility
+  * Merge pull request #312 from RichardLitt/feature/concat-extra-feature-names
+  * Merge pull request #320 from cironunes/gh-pages-fix
+  * fix gh-pages to stash and don't delete files
+  * Merge pull request #319 from pfctgeorge/allow-empty-when-setup
+  * Allow empty initial commit when setup repo.
+  * Merge pull request #317 from jykntr/master
+  * git-summary correctly displays project name
+  * git scp #300
+  * Merge pull request #316 from code42day/changelog-config
+  * changelog: add git-config support for format and log options
+  * Merge pull request #315 from code42day/consistent-editor
+  * use standard git editor in git-authors & git-changelog
+  * Merge pull request #314 from snowyu/feature/custom-commit-message
+  * + custom commit message options supports
+  * Merge pull request #300 from chernjie/git-scp
+  * Merge pull request #313 from wooorm/bug/fix-missing-closing-brace
+  * Fix missing closing curly brance in `bash_completion.sh`
+  * Added in option to concat extra feature names
+  * link to git delta
+  * git delta usage
+  * Merge pull request #310 from imsky/git-delta
+  * git-delta
+  * Add git-authors
+  * Merge pull request #309 from wooorm/feature/add-git-authors
+  * Add git-authors
+  * Updated Commands (markdown)
+  * Updated Commands (markdown)
+  * Updated Commands (markdown)
+  * Updated Commands (markdown)
+  * Updated Commands (markdown)
+  * tj#300 Added bash completion
+  * extra mktemp into git_extra_mktemp
+  * Merge pull request #307 from ckhall/feature/add_git_chore_workflow
+  * adding git-chore
+  * Merge pull request #306 from spacewander/master
+  * add enough X to fix #303. GNU mktemp requires at least three X in the last part of template.
+  * Merge pull request #304 from wooorm/git-ignore-typo
+  * Fix typo in in `git ignore` message
+  * symlink git-rscp to git-scp
+  * Avoid duplicating asterisk.
+  * Updated License.
+  * Fix link to git feature command
+  * path argument can not be optional in `rscp`; add more docs
+  * OMG a spelling mistake\!
+  * Merge pull request #301 from raeffs/master
+  * updated documentation because git-squash does no longer delete source-branch
+  * Updated man page for git-scp
+  * First RFC documentation
+  * Merge pull request #299 from jonanp/git-delete-branch
+  * When deleting a branch check if git has config.
+  * Added a footer.
+  * Merge pull request #298 from timfeirg/master
+  * remove stuff from readme & form a list
+  * add a few keywords
+  * some remaining dashes
+  * roughly finished
+  * Updated Commands (markdown)
+  * Updated Commands (markdown)
+  * Updated Commands (markdown)
+  * gonna use the clean sub command for each command explanation
+  * adding links turn out to be a pain, go to sleep
+  * add commands page link
+  * add commands page, all copy & paste
+  * add screencasts
+  * copy from readme
+  * Updated Install (markdown)
+  * Created Install (markdown)
+  * adapted a more generic, customizable and friendly script
+  * Copy from git-goth https://github.com/chernjie/git-goth
+  * Initial Home page
+  * Merge pull request #296 from spacewander/add-completion
+  * add more bash completion functions
+  * Merge pull request #294 from GuillaumeSeren/feature/git-missing-add-ref-completion
+  * Add ref completion to git-missing.
+  * Merge pull request #293 from tj/revert-291-ignore-man-generated-files
+  * Revert "Ignore *.html and *.1 auto-generated files in man/"
+  * Merge pull request #292 from RasmusWL/make-handle-missing-man
+  * make will not assume man pages already exists
+  * Merge pull request #291 from jguenther/ignore-man-generated-files
+  * Ignore man/git-*.html and man/git-*.1
+  * Remove auto-generated files man/git-*.html and man/git-*.1
+  * Merge pull request #226 from tsldh/master
+  * added changelog to release as optional flag
+  * Merge pull request #289 from mavant/feature/mktemp
+  * Use mktemp for temporary file creation.
+  * Merge pull request #288 from dead-horse/release-hook
+  * make release hook more flexible
+  * Merge pull request #287 from benjaminparnell/master
+  * added --no-color to git-delete-merged-branches
+  * More portable she-bangs.
+  * Merge pull request #283 from e28eta/patch-1
+  * Use process-specific tmp file and clean up on exit
+  * Merge pull request #281 from emilkje/patch-1
+  * Merge pull request #280 from valeriangalliat/feature/git-info-posix
+  * Update Readme.md
+  * git-info: POSIX compliance
+  * Merge pull request #278 from tj/delete-submodule-fix
+  * Fixes #277
+  * Merge pull request #276 from spacewander/master
+  * modify the behavior of git-ignore, now it will cd root to find .gitignore
+
+2.2.0 / 2014-11-18
+==================
+
+  * Version bump.
+  * Updated the list.
+  * Version 2.2.0
+  * Merge pull request #275 from spacewander/master
+  * Update `mktemp` command to work on Mac OS X
+  * Merge pull request #273 from spacewander/master
+  * add new command 'git root' to show the path to root of repo
+  * Merge pull request #271 from bohnman/git-rename-tag-fix
+  * Merge pull request #272 from spacewander/master
+  * correct the format of git-rebase-patch.md. Now we can handle it with script
+  * correct the '-m' argument for grep. Then regenralize git-extra
+  * replace visionmedia/git-extras to tj/git-extras
+  * changing incorrect reference of tag to tags
+  * Merge pull request #270 from kevinawoo/hotfix/git-locked
+  * added git-locked to check what files have been locked
+  * Merge pull request #268 from GuillaumeSeren/bug/git-missing
+  * Fix #267, git-missing did not catch branch name.
+
+v2.1.0 / 2014-10-13
+===================
+
+  * Version 2.1.0
+  * Fixes #266
+  * Merge pull request #264 from jamesmanning/patch-1
+  * fixed descriptions: match required/optional params
+  * Merge pull request #263 from Yitsushi/bug/180-does-not-check-out-branch-if-it-already-exists
+  * fix #180 and #232 feature|bug|refactor checkout
+  * Merge pull request #262 from rstacruz/gh-259-git-pr
+  * Implement git-pr
+  * Merge pull request #261 from sanusart/master
+  * FIX: representation of git-info
+  * Merge pull request #260 from brandondrew/patch-1
+  * import changes *from* a branch
+  * Merge pull request #258 from spacewander/master
+  * use mixin to add 'is git repo' check for some commands
+  * Merge pull request #255 from sanusart/master
+  * Bump version in `bin/git-extras`
+  * Changelogs for version 2.0.0
+
+2.0.0 / 2014-09-14
+==================
+
+  * Merge pull request #254 from spacewander/master
+  * add welcome in git-repl
+  * Merge pull request #253 from tailored-tunes/master
+  * Added option to specify base
+  * Merge pull request #252 from sorbits/patch-1
+  * Update homebrew URL and remove ‘buggy’ label
+  * Merge pull request #250 from sanusart/master
+  * ADD: git-reset-file
+  * Merge pull request #248 from rstacruz/patch-1
+  * Readme: document git-delete-merged-branches
+  * Merge pull request #247 from visionmedia/perm_fix
+  * File perms fix.
+  * Merge pull request #242 from sanusart/fix_feature_refactor_bug
+  * Merge pull request #244 from toksea/patch-1
+  * Merge pull request #243 from sanusart/issue234
+  * Fix wrong git-info heading level in Readme.md
+  * Revert 2 commits to `git-changelog`
+  * Fix feature|refactor|bug testing argument for string lenght
+  * Merge pull request #240 from egrim/bug/delete-merged-branches-clobbers-master
+  * Update docs to match `git-delete-merged-branches` behavior
+  * Exempt `master` from deleted branches
+  * Merge pull request #239 from bruno-/refactor_git_squash
+  * Refactor and improve `git squash`
+  * Merge pull request #238 from techjacker/feature/git-fork
+  * add git-fork
+  * Merge pull request #236 from jbnicolai/align-authors-git-summary
+  * Uses column -t to align summary output in a table.
+  * Merge pull request #221 from zlx/feature/git-summary-doc
+  * Merge pull request #224 from StewartJarod/patch-1
+  * Merge pull request #189 from rhacker/patch-1
+  * Merge pull request #235 from sanusart/patch-1
+  * FIX: check if un-pushed commits
+  * Merge pull request #202 from julionc/protecting-files
+  * Update Readme.md with lock and unlock commands
+  * git-unlock Unlock local files in git repository
+  * git-lock Lock files in git repository
+  * Merge pull request #100 from niklasf/rebase-patch
+  * Add git-rebase-patch
+  * Merge pull request #200 from emkay/patch-1
+  * Merge pull request #195 from carlcasbolt/patch-1
+  * Merge pull request #181 from zeroDivisible/feature/handle-misspellings
+  * Merge pull request #193 from pzelnip/git-setup-no-overwrite
+  * Merge pull request #183 from chernjie/master
+  * Merge pull request #220 from sanusart/master
+  * Merge pull request #63 from justone/git_missing
+  * Merge pull request #173 from accerqueira/master
+  * Merge pull request #194 from makeusabrew/patch-1
+  * Merge pull request #216 from stephenmathieson/fix/changelog-large-versions
+  * Merge pull request #188 from twolfson/dev/add.multi.delete.squashed
+  * Merge pull request #219 from jhoffmann/patch-1
+  * Merge pull request #222 from jsipprell/pull/filenames-containing-spaces
+  * Merge pull request #223 from mwoc/master
+  * Merge pull request #229 from yggdr/master
+  * Merge pull request #231 from petersohn/master
+  * Make git-obliterate work if there are whitespaces in filename
+  * invoke bash via /usr/bin/env for portability
+  * improved Makefile with BINPREFIX
+  * fixed Makefile uninstall target for man files
+  * Letter spacing in author list
+  * Use two-space indents for log entry output, so it again is debian changelog compatible (as before commit 1235e4a5)
+  * git effort: handle filenames containing whitespace cleanly
+  * Add line-summary as an options --line  & doc
+  * Add check for no changes in the tree (no sub-modules)
+  * Update Readme.md
+  * Fix changelog formatting for large version numbers
+  * removing `git promote`
+  * Update Readme.md
+  * Fix git-squash typo
+  * Address issue #190, git-setup should test for existing .git in target directory
+  * Add comment for the code
+  * Added multi-delete for git-delete-branch and git-delete-tag Correcting typos Compiled latest documentation Applying changes from delete-tag to delete-branch for consistency Removed unnecessary string quotes (thanks `git` ref design) and everything works Tags are not being found with string concatenation Updated delete-tag to accept multiple tags Corrections for delete-branch Updating docs for delete-tag Added 'Todd Wolfson' to AUTHORS Updated documentation for delete-branch Moved deletions to concatenate strings and delete in one fell swoop Reworking delete-branch to delete multiple branches in series
+  * git-create-branch: bug fix for branch creation use HEAD instead of origin
+  * changed the code for git bug|feature|refactor to only accept single argument when not finishing a bug|feature|refactor. This is an easy solution to avoid misspelings of the word 'finish'
+  * allow options to be passed through to git log
+  * adding git-missing command
+
+1.9.1 / 2014-06-21
+==================
+
+  * Release 1.9.1
+  * Merge pull request #225 from pmalek/master
+  * Fixed git-changelog errors when multiple files match change|history
+  * Fixed git-changelog errors on first usage
+  * Merge pull request #159 from code42day/no-merges-changelog
+  * Update git-changelog docs for --no-merges option
+  * Add --no-merges option to changelog
+  * Merge pull request #199 from tlvince/refactor/git-delete-merged-branches
+  * Merge pull request #201 from TooTallNate/patch-1
+  * git-changelog: don't output a trailing space after the date
+  * Simplify delete-merged-branches
+  * Merge pull request #185 from mo-gr/master
+  * Small typo correction
+
+1.9.0 / 2013-06-18
+==================
+
+  * Release 1.9.0
+  * git-squash: add --me flag to flatten the current branch
+  * Make repository_age() "history rewrite safe"
+  * Merge pull request #172 from zlx/feature/git-line-summary
+  * modify to count for text file
+  * add git-line-summary
+
+1.8.0 / 2013-05-15
+==================
+
+  * Release 1.8.0
+  * move docs target up
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * Merge pull request #102 from Phally/tag-in-command-line
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * Merge pull request #165 from TheHippo/git-archive-file
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * Merge pull request #168 from js-coder/master
+  * Merge pull request #169 from jgallen23/bug/index-lock
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * git-delete-merged-branches: use -D instead of delete-branch
+  * removed unnecessary git checkout for bug, feature and refactor
+  * Adds the tag swtich to bash completion.
+  * Updated readme; included the --tag switch.
+  * Added support for a --tag argument to directly set the tag name in the header.
+  * Added support for multiple arguments in git-changelog.
+  * Execute commands that are already prefixed with git directly
+  * Execute a shell command, if the command is prefixed with !
+  * Merge pull request #166 from Frusty/master
+  * Adding option to omit config in git-info
+  * added git-archive-file to Readme.md
+  * added man pages for git-archive-file
+  * import from https://github.com/TheHippo/git-archive-file
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * fix one-liner. Closes #164
+  * remove INSTALL check
+  * Merge pull request #163 from pitr/patch-1
+  * fix delete-branch to work with same-name tags
+  * Merge pull request #160 from southly/fix-typo
+  * fix typo
+  * Merge pull request #157 from gthb/patch-1
+  * Move misplaced text into git effort section
+  * Merge pull request #155 from themalkolm/patch-4
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * change git-effort(1) to use /bin/bash for now. Closes #78
+  * Delete tag on origin even if it wasn't locally fetched yet.
+  * Merge pull request #154 from themalkolm/master
+  * Delete branch on origin even if it wasn't locally fetched yet.
+  * Merge pull request #153 from themalkolm/master
+  * Update bit/git-count
+  * Merge pull request #152 from themalkolm/patch-1
+  * Update bin/git-count
+  * Merge pull request #149 from code42day/pu
+  * docs updates for get-delete-merged-branches
+  * Make delete-merge-branches more user-friendly
+  * Revert "Added git-review to review files on branch since the branch was created."
+  * Merge pull request #147 from code42day/pu
+  * Add remote parameter to git-release
+  * Merge pull request #145 from craigerm/master
+  * Added git-review to review files on branch since the branch was created.
+  * Merge pull request #143 from d2s/patch-1
+  * Fix broken URL from Readme.md
+  * Merge pull request #140 from jean/master
+  * Add usage note to delete-branch.
+  * Merge pull request #139 from tlvince/github-https
+  * Replace http with https for man Github urls
+  * Merge pull request #136 from jean/master
+  * Fix pattern to find names.
+  * Merge pull request #131 from nickl-/develop
+  * Recommit of @d153e9c Changes  to PR #114.
+  * Alphabetically sorted bash_completion.
+  * Merge pull request #130 from nickl-/develop
+  * Generate only a single manual.
+  * merge with muthasib as per pull req #114.
+  * Add bash_completion for new git-ignore switches.
+  * Make all bin scripts executable.
+  * Add docs for shorthand version of --list.
+  * All documentation updated as a result from shell script.
+  * The complete index of all available documents.
+  * Added automated manual generation.
+  * whitespace only
+  * Added examples to git-commits-since
+  * Complete git-ignore includes global.
+  * Added git-show-tree.
+  * Add global gitignore to git-ignore output
+  * git-undo now includes -h|--hard option.
+  * Merge pull request #128 from nickl-/git-extras-html-hyperlinks
+  * Merge pull request #129 from nickl-/develop
+  * Fix #127 git-ignore won't add duplicates.
+  * help ronn make hyperlinks.
+  * Fix typo in markdown and re-generate git-info
+  * Merge pull request #126 from agrimaldi/fix-changelog-last-tag
+  * Use git describe to fetch last tag
+  * Merge pull request #125 from brianloveswords/master
+  * Recursive remove by default.
+  * Add to readme
+  * Add `git-obliterate` for removing file from history.
+  * Update master
+  * Merge pull request #124 from agrimaldi/patch-1
+  * Fix screencast link
+  * screencast link
+  * fix git-summary repo age, remove "ago"
+  * remove debug shit
+  * fix some quoting in git-pull-request and ensure the remote is available
+  * fix git-pull-request curl body quoting
+  * add default of HEAD to git-pull-request
+  * add initial git-pull-request(1) implementation
+  * fix git-extras whitespace
+  * Merge pull request #122 from jespino/git-effort-with-dash
+  * Fixed 2 bashism and now works on bash and dash
+  * Merge pull request #119 from jespino/adding-manpages
+  * Revert "Removing a bashism from git-effort"
+  * Merge pull request #118 from jespino/bug/bashism-in-git-effort
+  * Removing a bashism from git-effort
+  * Adding delete-merge-branches, gh-pages, rename-tag and squash manpages
+  * Merge remote-tracking branch 'upstream/master'
+  * Merge pull request #117 from jespino/adding-manpages
+  * Adding bug/refactor/feature man pages
+  * Adding bug/refactor/feature man pages
+  * Merge remote-tracking branch 'upstream/master'
+  * move active above commits in git-summary
+  * Added git-delete-merged-branches(1)
+  * Revert "Added git-has(1) to check if a commit is present in the current branch"
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * Added git-has(1) to check if a commit is present in the current branch
+  * Merge pull request #116 from jespino/bug/rename-tag-without-shebang
+  * Merge branch 'bug/rename-tag-without-shebang'
+  * Adding shebang to the rename-tag command
+  * Merge pull request #113 from muhtasib/git_info
+  * Updated main documenation to include git-info
+  * Merge pull request #105 from muhtasib/fix_undo
+  * Merge pull request #112 from muhtasib/git_info
+  * Added documentation for git-info command.
+  * Added git-info command.
+  * Merge pull request #110 from muhtasib/docs_git_effort
+  * Updated git-extras to include git-effort.
+  * Added missing documenation for git-effort command
+  * Merge pull request #109 from muhtasib/docs_git_summary
+  * Updating git-summary documentation, because we added a 'repo age' field to git-summary command.
+  * Merge pull request #108 from muhtasib/git_effort_add_dots
+  * Added dots for fill instead of blank spaces
+  * git-undo now keeps file changes when undoing.
+
+1.7.0 / 2012-06-11
+==================
+
+  * Release 1.7.0
+  * git-summary: shorter repo age
+  * git-summary: make : line up
+  * Merge pull request #107 from muhtasib/summary_repo_age
+  * Added repo age to git-summary.
+
+1.6.0 / 2012-06-04
+==================
+
+  * Release 1.6.0
+  * tweak update a bit
+  * Merge pull request #104 from wilmoore/bug/extras-update-to-honor-prefix
+  * Favoring the use of bash "Parameter Expansion" instead of "dirname" as "dirname" has some cross-platform challenges.
+  * Corrected `git extras update` where ${PREFIX} was not honored for `make install`
+  * Merge pull request #103 from programble/patch-2
+  * Uninstall bash completion from correct directory
+  * git-release: removed "Prepared"
+  * Merge pull request #99 from creynders/master
+  * Merge branch 'changelog_mods'
+  * added switch -l as shortcut for --list to git-changelog
+  * git-changelog accepts optional parameter to pass changelog output file
+  * fixed incorrect argument passing and added pushing to remote
+  * added git-rename-tag
+  * ocd
+  * Merge pull request #98 from creynders/patch-1
+  * made `git commit` optional and added `-a -m` switches to `tag`
+  * Merge pull request #94 from wavded/patch-2
+  * changelog pulls tags in reverse order
+  * Merge pull request #93 from wavded/master
+  * switched to printf instead of echo
+  * Added git-local-commits: script to show a log of all commits not pushed to origin
+  * fixed git-repl conditional
+  * Merge pull request #89 from nulltask/feature/repl-display-branch
+  * Added displaying current branch name to git-repl(1) prompt
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * Improvements to git-repl
+  * Merge pull request #87 from mattoufoutu/master
+  * use https to clone in the automatic install script
+  * Merge pull request #82 from mcolyer/patch-1
+
+1.5.1 / 2012-03-15
+==================
+
+  * Release 1.5.1
+  * Fixes sorting issues with annotated and lightweight tags.
+  * Merge pull request #81 from programble/patch-1
+  * Install bash completion to $(DESTDIR)/etc, not $(DESTDIR)$(PREFIX)/etc
+  * Added active days to git-summary(1) (and refactored)
+  * Removed git-pull-request(1)
+  * Merge pull request #65 from singingwolfboy/master
+  * mention cmd
+  * sorted effort image
+  * replace unsorted with sorted
+  * Added: sort git-effort(1) results. Closes #73
+  * refactoring git-effort
+  * Modified git-pull-request to be able to create pull requests, as well as apply them
+  * Added git-gh-oauth: script to manage oauth keys for github
+  * Merge branch 'master' of github:visionmedia/git-extras
+  * Send error messages to stderr instead of stdout
+  * Added MacPorts as a way to install git-extras
+  * Added myself to AUTHORS file
+  * Make bash_completion install respect $(PREFIX) variable
+  * Support DESTDIR
+
+1.4.0 / 2012-02-08
+==================
+
+  * Release 1.4.0
+  * docs
+  * Added: allow files to be passed to `git-effort(1)`. Closes #71
+  * Added: hide/show cursor for `git-effort(1)`
+  * Changed: color `git-effort(1)` commits / active days independently
+  * refactord git-effort(1)
+  * active days img
+
+1.3.0 / 2012-02-08
+==================
+
+  * Release 1.3.0
+  * Added active days to `git-effort(1)` output
+
+1.2.0 / 2012-02-08
+==================
+
+  * Release 1.2.0
+  * update git-effort(1) image
+  * Added a greater color range to git-effort(1)
+  * use red instead of green
+  * ws
+  * Added --above <n> to git-effort(1)
+
+1.1.0 / 2012-02-07
+==================
+
+  * Release 1.1.0
+  * docs for git-effort(1)
+  * Added git-effort(1) (not yet complete)
+  * refactored git-summary(1)
+
+1.0.0 / 2012-02-04
+==================
+
+  * Release 1.0.0
+  * Added _git_squash() to bash_completion.sh
+  * fixed git-squash
+  * changed git-squash(1)
+  * Merge pull request #68 from hoganlong/master
+  * Update man/git-fresh-branch.html
+  * Update man/git-fresh-branch.1
+  * Update man/git-fresh-branch.md
+  * Merge branch 'master' of github.com:visionmedia/git-extras
+  * Added git-squash
+
+0.9.0 / 2012-01-15
+==================
+
+  * Release 0.9.0
+  * make /etc/bash_completion.d
+  * Merge pull request #64 from jweslley/feature/bash_completion
+  * (un)installation instructions
+  * bash completion script
+  * remove git-ignore garbage
+  * Merge pull request #62 from inkel/patch-1
+  * Adding `git-ignore` patterns from template was inside `git-create-branch` documentation.
+
+0.8.1 / 2011-12-30
+==================
+
+  * Release 0.8.1
+  * Merge pull request #61 from jweslley/feature/remove-git-promote
+  * track gh-pages branch
+  * remove git-promote
+  * Update Readme.md
+  * Update Readme.md
+
+0.8.0 / 2011-12-08
+==================
+
+  * Release 0.8.0
+  * Added pre- post-release hooks to git-release
+  * Merge pull request #57 from jweslley/git-promote
+  * Added git-promote
+  * merged
+  * Removed git-apply-branch
+  * Merge pull request #51 from nulltask/bugfix
+  * fixed: "git extra update" errors when pwd includes whitespace
+  * Merge pull request #50 from Zearin/patch-1
+  * Added syntax highlighting; numerous tweaks to punctuation; use present tense consistently throughout; tweaked markup so commands are backticked for readability.
+  * Added `git-apply-branch`
+  * doc typo
+
+0.7.0 / 2011-08-24
+==================
+
+  * Release 0.7.0
+  * typo
+  * Added percentages to `git-summary`
+  * fixed one-liner
+
+0.6.0 / 2011-06-24
+==================
+
+  * Release 0.6.0
+  * Merge pull request #43 from kennethreitz/feature/git-back
+  * new `git-back` command for soft undos
+
+0.5.1 / 2011-05-20
+==================
+
+  * Release 0.5.1
+  * docs
+  * revert git-ignore but retain argc == 0 as showing .gitignore contents
+
+0.5.0 / 2011-05-20
+==================
+
+  * revert broken git-release
+  * recursive install == bad
+  * added INSTALL check
+  * merge conflicts
+  * Merge pull request #41 from jweslley/master
+  * fixed typo error
+  * Use annotated tags to release commits instead of lightweight tags
+  * git-setup: create a directory if the provided one does not exist yet. Additionally, enables the creation of directories with names containing spaces in a more fashion way. Example: 'git setup path/to/repo name'.
+  * git-ignore: show all availables templates if no patterns are found.
+  * improved user feedback: show matched string using 'grep --color'
+  * Fixes multiple matches selection
+  * git-ignore template support. Templates are based in https://github.com/github/gitignore
+  * git-ignore doesnt fail if .gitignore file dont exists yet
+  * Merge branch 'master' of git://github.com/visionmedia/git-extras
+  * documentation for git-alias
+  * git alias
+  * Bump version
+  * Added git-create-branch
+  * removed git-ignore template support
+  * adopting uniq code style across multiple scripts: variables assignments, arguments validation and core logic. This style reduces if statements usage and makes code easier to understand. :D
+  * Merge branch 'master' of git://github.com/visionmedia/git-extras
+  * fixed typo error
+  * Use annotated tags to release commits instead of lightweight tags
+  * git-setup: create a directory if the provided one does not exist yet. Additionally, enables the creation of directories with names containing spaces in a more fashion way. Example: 'git setup path/to/repo name'.
+  * git-ignore: show all availables templates if no patterns are found.
+  * improved user feedback: show matched string using 'grep --color'
+  * Fixes multiple matches selection
+  * git-ignore template support. Templates are based in https://github.com/github/gitignore
+  * git-ignore doesnt fail if .gitignore file dont exists yet
+
+0.4.1 / 2011-04-05
+==================
+
+  * Release 0.4.1
+  * refactor git-graft
+  * git-graft now defaults to current branch instead of master
+
+0.4.0 / 2011-04-05
+==================
+
+  * Release 0.4.0
+  * docs
+  * Merge branch 'features'
+  * Added git-refactor
+  * delete branch after merge
+  * Added git-bug
+  * Added git-feature
+
+0.3.0 / 2011-03-29
+==================
+
+  * Release 0.3.0
+  * docs
+  * Added `git-pull-request`
+  * Revert "Revert "Make sure to get the last chronological tag, instead of relying on the bogus `git tag` sorting.""
+  * Revert "Make sure to get the last chronological tag, instead of relying on the bogus `git tag` sorting."
+
+0.2.0 / 2011-03-27
+==================
+
+  * Release 0.2.0
+  * docs
+  * Added `git-extras`, removed `git-extras-version` and `git-extras-update`
+  * Make sure to get the last chronological tag, instead of relying on the bogus `git tag` sorting.
+  * Added LICENSE
+  * Create install dir before copying
+
+0.1.0 / 2011-02-10
+==================
+
+  * Release 0.1.0
+  * Added gh-pages command
+  * https. Closes #27
+  * MANPATH -> MANPREFIX. Closes #25
+
+0.0.7 / 2010-10-31
+==================
+
+  * Release 0.0.7
+  * Merge branch 'integration'
+  * Installing / uninstall man pages
+  * Added html docs
+  * Built docs
+  * typo
+  * new `make clean`
+  * Started new makefile for docs
+  * Renamed man pages to *.md
+  * Added gitignore
+  * misc makefile fixes
+  * first manual's version
+  * man pages support
+  * Merge branch 'master' of git://github.com/visionmedia/git-extras
+  * One-liner
+  * Added -d -> -D. Closes #15
+  * Merge branch 'master' of git://github.com/visionmedia/git-extras
+  * Misc
+  * Merge branch 'master' of git://github.com/visionmedia/git-extras
+  * automatically remove trailing slash from argument if it exists
+  * add some usage notes to git-delete-submodule
+  * added git-delete-submodule for delete submodules easily
+  * show ignored files if no arguments are provided
+
+0.0.6 / 2010-10-22
+==================
+
+  * Release 0.0.6
+  * Use a shallow clone in git-update-extras.
+  * Create History.md if git-changelog can't find a target. Fixes #14.
+  * Add command git-touch.
+  * Bump version
+
+0.0.5 / 2010-10-08
+==================
+
+  * Release 0.0.5
+  * new git-ignore docs
+  * automatically remove trailing slash from argument if it exists
+  * add some usage notes to git-delete-submodule
+  * added git-delete-submodule for delete submodules easily
+  * show ignored files if no arguments are provided
+  * git-setup argument is now optional, defaulting to the CWD
+  * Styling
+  * Alias repl "ls" as ls-files
+  * Brew installation
+  * Bumped version. be sure to `git update-extras` !
+
+0.0.4 / 2010-09-10
+==================
+
+  * Release 0.0.4
+  * Don't fail if the local branch doesn't exist
+  * Also delete the remote branch
+  * Fixed PREFIX to respect env vars
+  * Merge branch 'integration'
+  * Updated AUTHORS
+  * Fix commit and file count in git-summary with a commitish
+  * Add docs about git summary to Readme.mkd
+  * Make git-summary take an optional commitish
+  * Fix shift in git-count
+  * git-graft dest branch defaults to master
+  * Merge remote branch 'agorf/git-setup'
+  * Use `test -d` for a more compatible directory check
+  * Use wildcard function for $(BINS)
+  * Add git-setup
+  * Misc refactoring
+  * Graft Update
+  * Added git-graft.
+  * Merge branch 'integration'
+  * Added git-undo for removing recent commits.
+  * think big.
+  * Added the essential'fresh-branch' feature. Updated Readme.md accordingly.
+  * updated makefile
+  * Updated history
+
+0.0.3 / 2010-08-27
+==================
+
+  * Release 0.0.3
+  * Added git-extras-version
+  * Added git-update-extras
+  * Fixed git-contrib issue when the username is in a commit msg
+  * Merge branch 'integration'
+  * Delete remote tag only if local was deleted
+  * Delete remote branch only if local was deleted
+  * Use -d to avoid deleting an unmerged branch by accident
+  * Merge branch 'integration'
+  * Fix printing of authors for git-summary's on Ubuntu
+  * read doesn't have the -e option in SH on my machine at least.
+
+0.0.2 / 2010-08-24
+==================
+
+  * Release 0.0.2
+  * Handle spaces in contributor's name for git-contrib
+  * Allow spaces in release names/numbers
+  * Added git-contrib
+  * Makefile cleanup
+  * Added git-summary
+  * Added git-commits-since
+  * Fixed readme
+  * Added git-repl
+  * Added git-delete-tag
+  * Added git-delete-branch
+  * Readme typo
+  * Fixed readme for changelog
+
+0.0.1 / 2010-08-05
+==================
+
+  * Merge branch 'changelog'
+  * Added git-changelog. Closes #1
+  * Docs for git-ignore. Closes #3
+  * Merge branch 'ignore'
+  * Added git-ignore
+  * Readme typo
+  * Fixed <tag> in docs
+  * Install docs
+  * Merge branch 'release'
+  * Added git-release
+  * Fixed readme
+  * Readme
+  * Passing args to git shortlog
+  * Added --all support to git-count
+  * Initial commit
 
 v0.2.0 / 2018-01-16
 ===================
@@ -40,152 +1515,4 @@ v0.1.0 / 2018-01-02
 
   * Merge branch 'release/v0.1.0'
   * <feat>: version 0.1
-  * Initial commit
-
-debian/0.4.6 / 2018-01-02
-=========================
-
-  * release
-  * remove more duplicates / tiny speed-up
-  * refresh policy
-  * also consider all intermediate subdirectories under /etc
-
-debian/0.4.5 / 2017-12-08
-=========================
-
-  * release
-  * upgrade policy again
-  * set Rules-Requires-Root: no
-  * Merge pull request #1 from adrianheine/patch-1
-  * Remove implemented todo item
-  * Handle filenames longer than 199 bytes (Closes: #867016)
-  * bump debhelper, standards-version
-  * convert one last url to https
-  * cp /usr/share/common-licenses/GPL-2 LICENSE
-  * use HTTPS for urls, bump copyright year
-  * typos
-  * Only refresh mlocate database when needed
-  * gitignore: Nano swap files
-  * Enable full hardening
-  * gitignore
-  * Declare compliance with Policy 3.9.7
-  * Merge branch 'master' of github.com:a-detiste/cruft-ng
-  * add new test_dpkg for development
-
-0.4.4_bpo8+1 / 2016-02-17
-=========================
-
-  * backport to jessie 0.4.4~bpo8+1 - thanks Pabs
-
-0.4.4 / 2016-01-18
-==================
-
-  * release
-  * add support for systems with UsrMerge
-
-0.4.3 / 2016-01-06
-==================
-
-  * release
-  * don't report .pyc files if a .py file exist (Closes:  #366616)
-
-0.4.2 / 2015-12-11
-==================
-
-  * release
-  * enable parallel build
-  * Makefile: reduce duplication
-  * fix two "warning: ignoring return value of" warnings
-  * add support for dpkg's path-exclude option
-  * revert ignoring /srv, let admin handle this with their custom rules
-
-0.4.1 / 2015-11-06
-==================
-
-  * match a single file given as $arg1
-  * ignore contents of /mnt too, these can be ntfs (not in PRUNEFS)
-  * drop depency on cruft as cruft-common is now in the archive
-
-0.4 / 2015-06-24
-================
-
-  * release
-  * regression test: prefer in-tree pgm if available
-  * allways ignore /tmp; use ignore() instead of getlin() for a speed-up
-  * fix shellcheck warnings
-  * off-by one error in debug code
-  * typos
-  * process scripts in /etc/cruft/explain/ too !
-  * explain: move popen() code in a function
-  * get rid of upper()
-  * run 'deheader' tool
-  * handle uppercase filters in /etc/cruft/filters/ like original cruft pgm
-  * handle DEBUG info in a consistent way
-  * Makefile: simplify test_mlocate target
-
-0.3 / 2015-05-04
-================
-
-  * Fix stack-smashing error, replace strcpy by strncpy (Closes: #783723)
-  * README.gz is moved after cruft/cruft-common split
-  * make dev builds use fortify too
-
-0.2 / 2015-04-29
-================
-
-  * let "make tests" succeed when "make (all)" hasnt been run before
-  * changelo
-  * enable hardening
-  * changelog
-  * review copyright
-  * fail immediatly if can't read mlocate's db
-
-0.1 / 2014-11-27
-================
-
-  * temporary disable (non-working) setgid
-  * thanks Tobias Frost for review
-  * use CXXFLAGS & LDFLAGS
-  * use unsigned int when appropriate
-  * switch default from clang to g++
-  * Makefile: define catch-alls
-  * ship README.md in package
-  * review debian/copyright
-  * let iterative script use system's cruft-ng
-  * update .gitignore
-  * add ITP number to changelog
-  * synch with cruft-common future split
-  * proper install in Makefile
-  * lintian: debian-watch-file-in-native-package
-  * add manpage
-  * dpkg_lib: add starting point URL
-  * rename read_globs() -> read_filters() to match folder name
-  * review 2
-  * review
-  * add sample script for incremental runs
-  * add test_explain
-  * trim mlocate.h
-  * split out read_explain()
-  * rename execute_filters() -> read_explain()
-  * add README with TODO
-  * review match
-  * split out read_diversions()
-  * double check missing files that may be on tmpfs
-  * handle diverted files
-  * rebuild package
-  * rebuild package
-  * split out read_dpkg_* functions
-  * redirect 3>&1
-  * add support for /etc/cruft/filters/
-  * first package built
-  * read /proc/mounts
-  * add support for scripts in /usr/lib/cruft/explain/
-  * don't include '/' in db
-  * add test_mlocate.cc, copy shellexp.c from original cruft
-  * put glob in a function
-  * make it easier to read
-  * don't read globs twice on multiarch
-  * first fast version
-  * first version with vector
-  * draft
   * Initial commit
