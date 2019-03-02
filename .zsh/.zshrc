@@ -36,8 +36,9 @@ zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/root/.zsh/.zshrc'
 
-autoload -Uz compinit
+autoload -Uz compinit promptinit
 compinit
+promptinit
 # End of lines added by compinstall
 
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -85,6 +86,7 @@ antigen bundle scd
 antigen bundle systemadmin
 antigen bundle themes
 antigen bundle tmux
+antigen bundle greymd/tmux-xpanes
 antigen bundle urltools
 antigen bundle vim-interaction
 antigen bundle web-search
