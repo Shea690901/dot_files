@@ -247,3 +247,9 @@ settitle ()
 # }
 #
 # alias cd=cd_func
+
+# Put your fun stuff here.
+case "${EBUILD_PHASE}" in
+    setup|prerm) etckeeper pre-install ;;
+    postinst|postrm) etckeeper post-install ;;
+esac

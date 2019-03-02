@@ -2,7 +2,7 @@
 n.n.n / 2019-03-03
 ==================
 
-  * <fix>(pre-commit): hpk
+  * <fix>(pre-commit): 'hook.' -> 'hooks.'
   * <fix>(zsh): corrected 'll' alias
   * <ref>(vim): reformatting of .vimrc
   * <fix>(git): allow 'git flow init'
