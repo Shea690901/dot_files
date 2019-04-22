@@ -15,6 +15,19 @@ SCRIPT_PATH="$0"; while [ -h "$SCRIPT_PATH" ]; do SCRIPT_PATH=$(readlink "$SCRIP
 # 1: abort commit
 RET=0
 
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=`git initial-commit`
+fi
+
+if [ "$against" = "No commits yet" ]
+then
+    exit $RET
+fi
+
 # prevent master commits
 #. "$HOOKS_DIR/modules/prevent-master-commits.sh"
 #if [ $? -ne 0 ]; then
@@ -27,24 +40,11 @@ if [ $? -ne 0 ]; then
     RET=1
 fi
 
-if git rev-parse --verify HEAD >/dev/null 2>&1
-then
-	against=HEAD
-else
-	# Initial commit: diff against an empty tree object
-	against=`git initial-commit`
-fi
-
 # If you want to allow non-ASCII filenames set this variable to true.
 allownonascii=$(git config --bool hooks.allownonascii)
 
 # Redirect output to stderr.
 exec 1>&2
-
-if [ "$against" = "No commits yet" ]
-then
-    return $RET
-fi
 
 # Cross platform projects tend to avoid non-ASCII filenames; prevent
 # them from being added to the repository. We exploit the fact that the

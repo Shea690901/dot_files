@@ -1,7 +1,9 @@
 
-n.n.n / 2019-03-03
+n.n.n / 2019-04-22
 ==================
 
+  * <fix>(git hooks): commit-hooks fixed
+  * <feat>(zsh): added tmux supplement modzle
   * <feat>(etc-keeper): added case stmt for etc-keeper
   * <fix>(pre-commit): 'hook.' -> 'hooks.'
   * <fix>(zsh): corrected 'll' alias

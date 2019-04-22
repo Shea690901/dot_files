@@ -52,5 +52,3 @@
 	command = xz -c
 [tar "txz"]
 	command = xz -c
-[hook]
-	allowwhitespace = 0

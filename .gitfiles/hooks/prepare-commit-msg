@@ -2,47 +2,51 @@
 COMMIT_MSG_FILE=$1
 COMMIT_SOURCE=$2
 SHA1=$3
+FLOW=0
 
-if [ -z "$BRANCHES_TO_SKIP" ]
+if git initial-commit > /dev/null
 then
-    if /usr/bin/git config --local --get gitflow.branch.master > /dev/null
+    if [ -z "$BRANCHES_TO_SKIP" ]
     then
-        BRANCHES_TO_SKIP=( $(/usr/bin/git config --local --get gitflow.branch.master) $(/usr/bin/git config --local --get gitflow.branch.develop) $(/usr/bin/git config --local --get gitflow.prefix.release) $(/usr/bin/git config --local --get gitflow.prefix.support) )
-        FLOW=1
-    else
-        BRANCHES_TO_SKIP=(master develop test)
-        FLOW=0
+        if /usr/bin/git config --local --get gitflow.branch.master > /dev/null
+        then
+            BRANCHES_TO_SKIP=( $(/usr/bin/git config --local --get gitflow.branch.master) $(/usr/bin/git config --local --get gitflow.branch.develop) $(/usr/bin/git config --local --get gitflow.prefix.release) $(/usr/bin/git config --local --get gitflow.prefix.support) )
+            FLOW=1
+        else
+            BRANCHES_TO_SKIP=(master develop test)
+            FLOW=0
+        fi
     fi
-fi
 
-BRANCH_NAME=$(/usr/bin/git rev-parse --abbrev-ref HEAD 2>/dev/null)
-if [ "${BRANCH_NAME}" = "HEAD" ]
-then
-    # check if we are in a rebase
-    HEAD_NAME_FILE="$(/usr/bin/git rev-parse --git-dir)/rebase-merge/head-name"
-    if [ -f "${HEAD_NAME_FILE}" ]
+    BRANCH_NAME=$(/usr/bin/git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [ "${BRANCH_NAME}" = "HEAD" ]
     then
-        BRANCH_NAME=$(/usr/bin/cut -f3- -d/ ${HEAD_NAME_FILE})
-    else
-        echo "DETACHED HEAD!!!"
-        echo "Please create a new branch before commiting any changes!"
-        exit 1
+        # check if we are in a rebase
+        HEAD_NAME_FILE="$(/usr/bin/git rev-parse --git-dir)/rebase-merge/head-name"
+        if [ -f "${HEAD_NAME_FILE}" ]
+        then
+            BRANCH_NAME=$(/usr/bin/cut -f3- -d/ ${HEAD_NAME_FILE})
+        else
+            echo "DETACHED HEAD!!!"
+            echo "Please create a new branch before commiting any changes!"
+            exit 1
+        fi
     fi
-fi
 
-if [ $FLOW -eq 1 ]
-then
-    if [ "${BRANCH_NAME##*/}" == "${BRANCH_NAME}" ]
+    if [ $FLOW -eq 1 ]
     then
-        BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/grep -c "^${BRANCH_NAME$}")
+        if [ "${BRANCH_NAME##*/}" == "${BRANCH_NAME}" ]
+        then
+            BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/grep -c "^${BRANCH_NAME$}")
+        else
+            BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/egrep -c "^${BRANCH_NAME}[a-zA-Z0-9._-]+$")
+        fi
     else
-        BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/egrep -c "^${BRANCH_NAME}[a-zA-Z0-9._-]+$")
+        BRANCH_NAME="${BRANCH_NAME##*/}"
+        BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/grep -c "^${BRANCH_NAME}")
     fi
-else
-    BRANCH_NAME="${BRANCH_NAME##*/}"
-    BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/grep -c "^${BRANCH_NAME}")
+    BRANCH_IN_COMMIT=$(/bin/grep -c "\($BRANCH_NAME\)" "${COMMIT_MSG_FILE}")
 fi
-BRANCH_IN_COMMIT=$(/bin/grep -c "\($BRANCH_NAME\)" "${COMMIT_MSG_FILE}")
 
 INCLUDE_OLD_LOGS=0
 
@@ -80,7 +84,10 @@ case "$COMMIT_SOURCE" in
         print_header
         ;;
     template)
-        INCLUDE_OLD_LOGS=1
+        if git initial-commit > /dev/null
+        then
+            INCLUDE_OLD_LOGS=1
+        fi
         print_header
         ;;
     merge)
@@ -97,7 +104,7 @@ case "$COMMIT_SOURCE" in
         ;;
 esac
 
-if [ $INCLUDE_OLD_LOGS -eq 1 ]
+if [ $INCLUDE_OLD_LOGS -ne 0 ]
 then
     echo "#" >> "$COMMIT_MSG_FILE"
     echo "# Last 10 commit messages" >> "$COMMIT_MSG_FILE"
