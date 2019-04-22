@@ -1,7 +1,5 @@
-creds
-!.gitignore
-!commit_msg.template
-!ignore
+!*
+*.sample
 
 # Created by https://www.gitignore.io/api/vim
 # Edit at https://www.gitignore.io/?templates=vim

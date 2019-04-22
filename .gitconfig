@@ -6,10 +6,13 @@
 	feature = flow feature
 	logg = log --pretty=format:'%C(Yellow)%h %C(Cyan)%ad %C(White)%s%C(Green)%d %C(Red)[%an]' --date=short
 	hist = log --pretty=format:'%C(Yellow)%h %C(Cyan)%ad %C(White)%s%C(Green)%d %C(Red)[%an]' --date=short --graph --decorate
+	whatadd = log --diff-filter=A --
 [core]
 	editor = vim
+	excludesFile = /home/shea/.gitfiles/ignore
+	hooksPath = /home/shea/.gitfiles/hooks
 [credential]
-	helper = store --file=/home/Rene/.gitfiles/creds
+	helper = store --file=/home/shea/.gitfiles/creds
 [user]
 	email = ginny690901@hotmail.de
 	name = Shea690901
@@ -17,8 +20,9 @@
 	user = Shea690901
 [hooks]
 	allownonascii = false
+	allowwhitespace = 0
 [commit]
-	template = /home/Rene/.gitfiles/commit_msg.template
+	template = /home/shea/.gitfiles/commit_msg.template
 [trailer]
 	where = after
 [trailer "sign"]
@@ -42,3 +46,9 @@
 	push = true
 [oh-my-zsh]
 	hide-status = 1
+[tar]
+	umask = 022
+[tar "tar.xz"]
+	command = xz -c
+[tar "txz"]
+	command = xz -c

@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh/history/${TTY#/dev/}
+HISTFILE=~/.zsh/history/${${TTY#/dev/}//\//_}
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory beep extendedglob nomatch
@@ -34,10 +34,11 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' substitute 1
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/Rene/.zsh/.zshrc'
+zstyle :compinstall filename '/root/.zsh/.zshrc'
 
-autoload -Uz compinit
+autoload -Uz compinit promptinit
 compinit
+promptinit
 # End of lines added by compinstall
 
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -46,7 +47,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="verbose"
 GIT_PS1_SHOWCOLORHINTS=1
 SCD_HISTFILE=${ZDOTDIR}/scd/history
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=true
 ZSH_TMUX_AUTOQUIT=$ZSH_TMUX_AUTOSTART
@@ -55,7 +56,7 @@ ZSH_TMUX_ITERM2=false
 ZSH_TMUX_FIXTERM_WITHOUT_256COLOR="screen"
 ZSH_TMUX_FIXTERM_WITH_256COLOR="screen-256color"
 
-source /usr/local/share/antigen.zsh
+source /usr/local/share/zsh/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
@@ -85,6 +86,7 @@ antigen bundle scd
 antigen bundle systemadmin
 antigen bundle themes
 antigen bundle tmux
+antigen bundle greymd/tmux-xpanes
 antigen bundle urltools
 antigen bundle vim-interaction
 antigen bundle web-search
@@ -92,31 +94,48 @@ antigen bundle web-search
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+antigen bundle arialdomartini/oh-my-git
+antigen theme Shea690901/oh-my-git-themes oppa-lana-style-nerdfonts
+
 # Tell Antigen that you're done.
 antigen apply
 
 # Load the theme.
-theme jtriley
+#theme jtriley
 
 ssh_agent_running=0
 if [ -f "${HOME}/.ssh_agent" ]; then
   source "${HOME}/.ssh_agent"
-  if ps -p $SSH_AGENT_PID | grep -q /usr/bin/ssh-agent ; then
+  if ps -p $SSH_AGENT_PID | grep -q ssh-agent ; then
     ssh_agent_running=1
   fi
 fi
 
-if echo $- | grep -q i ; then
+if echo $- | \grep -q i ; then
   if [ $ssh_agent_running -eq 0 ]; then
     /usr/bin/ssh-agent > "${HOME}/.ssh_agent"
     source "${HOME}/.ssh_agent"
-    for x in ${HOME}/.ssh/*.pub
-    do
-      ssh-add ${x%%.pub}
-    done
+    if setopt | \grep nomatch >/dev/null 2>&1
+    then
+      ssh_agent_reset_opt=0
+    else
+      setopt nonomatch
+      ssh_agent_reset_opt=1
+    fi
+    if ls ${HOME}/.ssh/*.pub >/dev/null 2>&1
+    then
+      for x in ${HOME}/.ssh/*.pub
+      do
+        ssh-add ${x%%.pub}
+      done
+    fi
+    if [ $ssh_agent_reset_opt -eq 1 ]
+    then
+      setopt nomatch
+    fi
   fi
 fi
-unset ssh_agent_running x
+unset ssh_agent_running ssh_agent_reset_opt x
 
 export LANG=de_DE.UTF-8
 export EDITOR='vim'
@@ -132,4 +151,4 @@ alias fgrep='fgrep --color=auto'                # show differences in colour
 alias ls='ls --color=auto'                      # classify files in colour
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
-alias ll='ls -lag'                              # long list
+alias ll='ls -la'                              # long list

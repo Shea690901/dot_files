@@ -1,0 +1,124 @@
+#!/bin/bash
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+FLOW=0
+
+if git initial-commit > /dev/null
+then
+    if [ -z "$BRANCHES_TO_SKIP" ]
+    then
+        if /usr/bin/git config --local --get gitflow.branch.master > /dev/null
+        then
+            BRANCHES_TO_SKIP=( $(/usr/bin/git config --local --get gitflow.branch.master) $(/usr/bin/git config --local --get gitflow.branch.develop) $(/usr/bin/git config --local --get gitflow.prefix.release) $(/usr/bin/git config --local --get gitflow.prefix.support) )
+            FLOW=1
+        else
+            BRANCHES_TO_SKIP=(master develop test)
+            FLOW=0
+        fi
+    fi
+
+    BRANCH_NAME=$(/usr/bin/git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [ "${BRANCH_NAME}" = "HEAD" ]
+    then
+        # check if we are in a rebase
+        HEAD_NAME_FILE="$(/usr/bin/git rev-parse --git-dir)/rebase-merge/head-name"
+        if [ -f "${HEAD_NAME_FILE}" ]
+        then
+            BRANCH_NAME=$(/usr/bin/cut -f3- -d/ ${HEAD_NAME_FILE})
+        else
+            echo "DETACHED HEAD!!!"
+            echo "Please create a new branch before commiting any changes!"
+            exit 1
+        fi
+    fi
+
+    if [ $FLOW -eq 1 ]
+    then
+        if [ "${BRANCH_NAME##*/}" == "${BRANCH_NAME}" ]
+        then
+            BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/grep -c "^${BRANCH_NAME$}")
+        else
+            BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/egrep -c "^${BRANCH_NAME}[a-zA-Z0-9._-]+$")
+        fi
+    else
+        BRANCH_NAME="${BRANCH_NAME##*/}"
+        BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/grep -c "^${BRANCH_NAME}")
+    fi
+    BRANCH_IN_COMMIT=$(/bin/grep -c "\($BRANCH_NAME\)" "${COMMIT_MSG_FILE}")
+fi
+
+INCLUDE_OLD_LOGS=0
+
+/usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
+
+print_header() {
+    if [ $FLOW -eq 1 ]
+    then
+        if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]
+        then
+            case "$BRANCH_NAME" in
+                feature/*)
+                    /bin/sed -i.bak -e "1s,^,<feat>(${BRANCH_NAME##*/}): ," "$COMMIT_MSG_FILE"
+                    ;;
+                bugfix/*)
+                    /bin/sed -i.bak -e "1s,^,<fix>(${BRANCH_NAME##*/}): ," "$COMMIT_MSG_FILE"
+                    ;;
+                hotfix/*)
+                    /bin/sed -i.bak -e "1s,^,<fix>(${BRANCH_NAME##*/}): ," "$COMMIT_MSG_FILE"
+                    ;;
+            esac
+        fi
+    else
+        if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]
+        then
+            /bin/sed -i.bak -e "1s/^/($BRANCH_NAME) /" "$COMMIT_MSG_FILE"
+        fi
+    fi
+}
+
+case "$COMMIT_SOURCE" in
+    "")
+        ;;
+    message)
+        print_header
+        ;;
+    template)
+        if git initial-commit > /dev/null
+        then
+            INCLUDE_OLD_LOGS=1
+        fi
+        print_header
+        ;;
+    merge)
+        /usr/bin/perl -i.bak -ne 's/^/# /, s/^# #/#/ if /^Conflicts/ .. /#/; print' "$COMMIT_MSG_FILE"
+        ;;
+    squash)
+        ;;
+    commit)
+        ;;
+    *)
+        echo "Unknown commit message source '${COMMIT_SOURCE}'!"
+        echo "If source is valid please extend prepare-commit-msg hook."
+        exit 1
+        ;;
+esac
+
+if [ $INCLUDE_OLD_LOGS -ne 0 ]
+then
+    echo "#" >> "$COMMIT_MSG_FILE"
+    echo "# Last 10 commit messages" >> "$COMMIT_MSG_FILE"
+    echo "# ----------------------" >> "$COMMIT_MSG_FILE"
+    /usr/bin/git log --pretty=format:"# %h %s [%an]" -10 >> "$COMMIT_MSG_FILE"
+    echo >> "$COMMIT_MSG_FILE"
+fi
+
+# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+# SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
+/usr/bin/git interpret-trailers --in-place --trim-empty "$COMMIT_MSG_FILE"
+if [ -z "$COMMIT_SOURCE" ]
+then
+    /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+fi
