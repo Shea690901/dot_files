@@ -239,9 +239,7 @@ let g:rm_apply_config_mapping='<leader>sv'
     " }}}
 
     " Writing {{{2
-        if has("python")
-            Plugin 'vim-scripts/lookup.vim'
-        endif
+        Plugin 'szw/vim-dict'
         Plugin 'vim-scripts/txt.vim'
 
         if count(g:rm_bundle_groups, 'writing')
