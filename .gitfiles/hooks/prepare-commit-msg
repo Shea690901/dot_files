@@ -37,7 +37,7 @@ then
     then
         if [ "${BRANCH_NAME##*/}" == "${BRANCH_NAME}" ]
         then
-            BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/grep -c "^${BRANCH_NAME$}")
+            BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/grep -c "^${BRANCH_NAME}")
         else
             BRANCH_EXCLUDED=$(/usr/bin/printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | /bin/egrep -c "^${BRANCH_NAME}[a-zA-Z0-9._-]+$")
         fi
