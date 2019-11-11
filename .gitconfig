@@ -20,6 +20,7 @@
 	user = Shea690901
 [hooks]
 	allownonascii = false
+	allowchangelog = false
 	allowwhitespace = 0
 [commit]
 	template = /home/shea/.gitfiles/commit_msg.template

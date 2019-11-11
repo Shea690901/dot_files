@@ -42,6 +42,8 @@ fi
 
 # If you want to allow non-ASCII filenames set this variable to true.
 allownonascii=$(git config --bool hooks.allownonascii)
+# If you want to allow automatic Changelog changes set this variable to true.
+allowchangelog=$(git config --bool hooks.allowchangelog)
 
 # Redirect output to stderr.
 exec 1>&2
@@ -95,7 +97,10 @@ fi
 # THIS commit will be missing!!!
 if [ $RET -eq 0 ]
 then
-    git changelog -a -x > $(git root)/ChangeLog && git add $(git root)/ChangeLog
+    if [ "$allowchangelog" == "true" ]
+    then
+        git changelog -a -x > $(git root)/ChangeLog && git add $(git root)/ChangeLog
+    fi
 fi
 
 exit $RET
